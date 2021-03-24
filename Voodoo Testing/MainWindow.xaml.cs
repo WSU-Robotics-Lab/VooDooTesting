@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using System.IO;    // for StreamReader
+using System.Threading;
 
 namespace Voodoo_Testing
 {
@@ -25,14 +26,12 @@ namespace Voodoo_Testing
 
     public partial class MainWindow : Window
     {
-
-
         //*******************************************************************************
         //                                  Global Variables    
         //*******************************************************************************
         VooDooAPI v = new VooDooAPI();  //create a VoodooAPI object
-
         public System.Collections.ObjectModel.ObservableCollection<PicClass> Images { get; set; }
+        public List<Queue> Queued = new List<Queue>();
 
         public MainWindow()
         {
@@ -69,11 +68,9 @@ namespace Voodoo_Testing
             }
         }
 
-
-
         #region "Methods"
 
-        public void SendInstruction()
+        public string CreateURL()
         {
             string Line1 = "";
             string Line2 = "";
@@ -87,14 +84,14 @@ namespace Voodoo_Testing
             if (cmb_DeviceID.SelectedItem.ToString() == "")
             {
                 System.Windows.MessageBox.Show("Must Enter Device ID");
-                return;
+                return "";
             }
 
 
             if (cmb_MessageType.SelectedItem.ToString() == "")
             {
                 System.Windows.MessageBox.Show("Must Enter Message Type");
-                return;
+                return "";
             }
 
 
@@ -236,7 +233,7 @@ namespace Voodoo_Testing
             v.setDisplay(Line1 + "~" + Line2, Line3 + "~" + Line4 + "~" + Line5);
             v.setColor(color);
             v.setTime(time);
-            v.execute();
+            return v.CreateURL();
         }
 
         #endregion
@@ -250,18 +247,17 @@ namespace Voodoo_Testing
         //--------------------------------- Send Instructions  --------------------------
         private void btn_SendInstruction_Click(object sender, RoutedEventArgs e)
         {
-            SendInstruction();
+            foreach (Queue Q in Queued)
+            {
+                new Thread(() =>
+                {
+                    Q.TimeSent = DateTime.Now;
+                    v.SendInstruction(Q.URL);
+                    RemoveLine();
+                    Thread.Sleep(100);
+                }).Start();
+            }
         }
-
-        //private void btn_Login_Click(object sender, RoutedEventArgs e)
-        //{
-        //    v.login();
-        //}
-
-        //private void btn_Logoff_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
 
         private void cbm_Line1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -450,6 +446,59 @@ namespace Voodoo_Testing
 
         #endregion
 
+        private void btn_QueueInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            string URL = CreateURL();
+            int ID;
+            bool response;
+            if (Chk_ResponseRequired.IsChecked == true)
+            {
+                response = true;
+            }
+            else
+            {
+                response = false;
+            }
+            if (Queued.Count == 0)
+            {
+                ID = 0;
+            }
+            else
+            {
+                ID = Queued[Queued.Count - 1].ID + 1;
+            }
+            Queued.Add(new Queue(ID, URL, response));
+            if (txt_Instructions.Text == "")
+            {
+                txt_Instructions.Text = txt_Instructions.Text + URL + " ID:" + ID + " Response:" + response.ToString();
+            }
+            else
+            {
+                txt_Instructions.Text = txt_Instructions.Text + "\n" + URL + " ID:" + ID + " Response:" + response.ToString();
+            }
+        }
+
+        private void btn_RemoveInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            RemoveLine();
+        }
+
+        public void RemoveLine()
+        {
+            //TO DO - ERRORS WHEN ERASING LAST LINE
+            Dispatcher.Invoke(() =>
+            {
+                Queued.RemoveAt(Queued.Count - 1);
+                if (txt_Instructions.Text == "")
+                {
+                    return;
+                }
+                else
+                {
+                    txt_Instructions.Text = txt_Instructions.Text.Replace("\n" + txt_Instructions.Text.Split('\n')[txt_Instructions.Text.Split('\n').Length - 1], "");
+                }
+            });
+        }
     }
 
     #region "Exceptions"
@@ -476,27 +525,5 @@ namespace Voodoo_Testing
     }
 
     #endregion
-
-    #region "Classes"
-
-    #region "VooDooAPI"
-
-    //*******************************************************************************
-    //                                  Voodoo API    
-    //*******************************************************************************
-
-    #endregion
-
-    #region "Queing"
-
-
-
-    #endregion
-
-    #endregion
-
-
-
-
 
 }

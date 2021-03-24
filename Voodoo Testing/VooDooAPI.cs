@@ -110,7 +110,7 @@ namespace Voodoo_Testing
         //                                 Execute
         //*******************************************************************************
 
-        public void execute()
+        public string CreateURL()
         {
             //make sure a deviceID has been set
             if (deviceID == "")
@@ -146,6 +146,34 @@ namespace Voodoo_Testing
                 tune = "none";
             }
 
+
+
+            //okay, set up the whole url for the get request
+            //see:  https://voodoorobotics.com/constructing-a-url/
+            string url = baseurl + "api/" + deviceID + "/" + opWord + "/" + line1 + "/" + line2;  //+ "" + "~" + "" + "~" + "";
+            switch (op)
+            {
+                case operationType.display:
+                    url += "/" + tune + "/" + time.ToString() + color;
+                    break;
+                case operationType.flash:
+                    url += "/" + tune + "/" + time.ToString() + color;
+                    break;
+                case operationType.opStatic:
+                case operationType.opStatic2:
+                case operationType.location:
+                default:
+                    break;
+                    //do nothing!
+            }
+
+
+
+            return url;
+        }
+
+        public void SendInstruction(string url)
+        {
             //are we already logged in?  No need to log in twice.
             if (!loggedIn)
             {
@@ -160,34 +188,11 @@ namespace Voodoo_Testing
                 throw (new RuntimeException("Login failed!"));
             }
 
-            //okay, set up the whole url for the get request
-            //see:  https://voodoorobotics.com/constructing-a-url/
-            string url = baseurl + "api/" + deviceID + "/" + opWord + "/" + line1 + "/" + line2;  //+ "" + "~" + "" + "~" + "";
-            System.Windows.MessageBox.Show(url);
-            switch (op)
-            {
-                case operationType.display:
-                    url += "/" + tune + "/" + time.ToString() + color;
-                    System.Windows.MessageBox.Show(url);
-                    break;
-                case operationType.flash:
-                    url += "/" + tune + "/" + time.ToString() + color;
-                    System.Windows.MessageBox.Show(url);
-                    break;
-                case operationType.opStatic:
-                case operationType.opStatic2:
-                case operationType.location:
-                default:
-                    break;
-                    //do nothing!
-            }
-
             //if there is a transaction ID for the closed loop, then add it here
             //see: https://voodoorobotics.com/closed-loop-system/
             if (txnID != "")
             {
                 url += "/" + txnID;
-                System.Windows.MessageBox.Show(url);
             }
 
             try
@@ -200,7 +205,6 @@ namespace Voodoo_Testing
 
                 var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 //response discarded in this demo!
-                System.Windows.MessageBox.Show("Status" + response.StatusCode);
                 response.Close();
             }
             catch (Exception e)
@@ -208,7 +212,6 @@ namespace Voodoo_Testing
                 loggedIn = false;  //if there was a problem, make sure that I'm logged out.
                 throw e;  //rethrow the error
             }
-
         }
 
         //*******************************************************************************

@@ -8,7 +8,8 @@
         Title="MainWindow" Height="475.45" Width="808.484">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.65*"/>
+            <ColumnDefinition Width="0.35*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
@@ -16,67 +17,56 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.20*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.ColumnSpan="2" Margin="0">
 
-            <!--<StackPanel Orientation="Horizontal" Margin="0,10,0,10">
-                <Button x:Name="btn_Login" Content="Login to Voodoo Server" Click="btn_Login_Click" Height="60" Width="400" />
-                <Button x:Name="btn_Logoff" Content="Log Off" Click="btn_Logoff_Click" Height="60" Width="400"/>
-            </StackPanel>-->
-
-            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <Label Content="URL" Width="100" />
-                <TextBox x:Name="txt_URL" Text="Https://www.sku-keeper.com/api" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>-->
-
-            <!--<Viewbox Grid.Row="0">-->
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Label Content="User Name" Width="100" />
-                        <TextBox x:Name="txt_UserName" Text="ddeegan" Width="150" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
-                        <Label Content="Password" Width="100" />
-                        <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" Width="150" HorizontalAlignment="Left"/>
-                    </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="User Name" Width="100" />
+                    <TextBox x:Name="txt_UserName" Text="ddeegan" Width="150" HorizontalAlignment="Left"/>
                 </StackPanel>
-            <!--</Viewbox>-->
-
-
-            <!--<Viewbox Grid.Row="1">-->
-                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
-                    <StackPanel>
-                        <Label Content="Device ID" Width="150" />
-                        <ComboBox x:Name="cmb_DeviceID">
-                            <ComboBoxItem Content="EC7951:EBC981" />
-                            <ComboBoxItem Content="E40662:26F78E" />
-                        </ComboBox>
-                    </StackPanel>
-                    <StackPanel  AllowDrop="True">
-                        <Label Content="Message Type" Width="150" />
-                        <ComboBox x:Name="cmb_MessageType" >
-                            <ComboBoxItem Content="Flash" />
-                            <ComboBoxItem Content="Pick" />
-                            <ComboBoxItem Content="Static" />
-                        </ComboBox>
-                    </StackPanel>
-                    <StackPanel  AllowDrop="True">
-                        <Label Content="Music" Width="150" />
-                        <ComboBox x:Name="cmb__Music" />
-                    </StackPanel>
-                    <StackPanel  AllowDrop="True">
-                        <Label Content="Button Color" Width="150" />
-                        <ComboBox x:Name="cmb_ButtonColor" />
-                    </StackPanel>
-                    <StackPanel  AllowDrop="True">
-                        <Label Content="Color Duration (Sec)" Width="125" />
-                        <TextBox x:Name="txt_ButtonColorDuration" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="22" />
-                    </StackPanel>
-                    <StackPanel  AllowDrop="True">
-                        <Label Content="Remain On" Width="75" />
-                        <CheckBox x:Name="Chk_RemainOn" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30, 0, 0, 0"/>
-                    </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                    <Label Content="Password" Width="100" />
+                    <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" Width="150" HorizontalAlignment="Left"/>
                 </StackPanel>
-            <!--</Viewbox>-->
+            </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+                <StackPanel>
+                    <Label Content="Device ID" />
+                    <ComboBox x:Name="cmb_DeviceID">
+                        <ComboBoxItem Content="EC7951:EBC981" />
+                        <ComboBoxItem Content="E40662:26F78E" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel  AllowDrop="True">
+                    <Label Content="Message Type"/>
+                    <ComboBox x:Name="cmb_MessageType" >
+                        <ComboBoxItem Content="Flash" />
+                        <ComboBoxItem Content="Pick" />
+                        <ComboBoxItem Content="Static" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel  AllowDrop="True">
+                    <Label Content="Music"/>
+                    <ComboBox x:Name="cmb__Music" />
+                </StackPanel>
+                <StackPanel  AllowDrop="True">
+                    <Label Content="Button Color"/>
+                    <ComboBox x:Name="cmb_ButtonColor" />
+                </StackPanel>
+                <StackPanel  AllowDrop="True">
+                    <Label Content="Color Duration (Sec)"/>
+                    <TextBox x:Name="txt_ButtonColorDuration" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+                <StackPanel  AllowDrop="True">
+                    <Label Content="Remain On"/>
+                    <CheckBox x:Name="Chk_RemainOn" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel  AllowDrop="True">
+                <Label Content="Response Required"/>
+                <CheckBox x:Name="Chk_ResponseRequired" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
 
 
             <Viewbox Grid.Row="2">
@@ -184,7 +174,13 @@
                 </StackPanel>
             </Viewbox>
 
-            <Button x:Name="btn_SendInstruction" Grid.Row="4" Content="Send Instruction" Height="60" Width="800" Click="btn_SendInstruction_Click" />
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  x:Name="btn_QueueInstruction" Content="Queue Instruction" Height="60" Width="150" Click="btn_QueueInstruction_Click"/>
+            <Button  x:Name="btn_RemoveInstruction" Content="Remove Instruction" Height="60" Width="150" Click="btn_RemoveInstruction_Click"/>
+            <Button x:Name="btn_SendInstruction"  Content="Send Instruction" Height="60" Width="150" Click="btn_SendInstruction_Click" />
         </StackPanel>
+
+        <TextBox x:Name="txt_Instructions" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+
     </Grid>
 </Window>

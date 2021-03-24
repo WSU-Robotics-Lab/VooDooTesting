@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace Voodoo_Testing
 {
-    class Queue
+    public class Queue
     {
+        public int ID;
+        public string URL;
+        public DateTime TimeSent;
+        public DateTime TimeRecieved;
+        public bool ResponseRequired;
+
+        public Queue(int id, string url, bool responseRequired)
+        {
+            ID = id;
+            URL = url;
+            ResponseRequired = responseRequired;
+        }
 
     }
 }
