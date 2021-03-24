@@ -1,0 +1,30 @@
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.exe.config
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.exe
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.pdb
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csprojAssemblyReference.cache
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\MainWindow.g.cs
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\App.g.cs
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing_MarkupCompile.cache
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing_MarkupCompile.lref
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\MainWindow.baml
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.g.resources
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo_Testing.Properties.Resources.resources
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csproj.GenerateResource.cache
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csproj.CoreCompileInputs.cache
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.exe
+C:\Users\ddeegan\source\repos\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.pdb
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.exe.config
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.exe
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\bin\Debug\Voodoo Testing.pdb
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csprojAssemblyReference.cache
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\MainWindow.g.cs
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\App.g.cs
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing_MarkupCompile.cache
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing_MarkupCompile.lref
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\MainWindow.baml
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.g.resources
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo_Testing.Properties.Resources.resources
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csproj.GenerateResource.cache
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.csproj.CoreCompileInputs.cache
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.exe
+R:\Projects\Spirit\Smart Workcell\Voodoo\Voodoo Testing\Voodoo Testing\obj\Debug\Voodoo Testing.pdb
