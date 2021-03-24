@@ -56,6 +56,9 @@ namespace Voodoo_Testing
 
 
 
+
+
+
             this.DataContext = this;
             Images = new System.Collections.ObjectModel.ObservableCollection<PicClass>();
             foreach (string name in v.Icons.Keys)
