@@ -335,10 +335,10 @@ namespace Voodoo_Testing
             case "Icon":
                 txt_Line2.Visibility = Visibility.Collapsed;
                 cbm_Line2Icons.Visibility = Visibility.Visible;
-                foreach (string Icon in v.Icons.Keys)
-                {
-                    cbm_Line2Icons.Items.Add(Icon);
-                }
+                //foreach (string Icon in v.Icons.Keys)
+                //{
+                //    cbm_Line2Icons.Items.Add(Icon);
+                //}
                 break;
 
             default:
@@ -372,10 +372,10 @@ namespace Voodoo_Testing
             case "Icon":
                 txt_Line3.Visibility = Visibility.Collapsed;
                 cbm_Line3Icons.Visibility = Visibility.Visible;
-                foreach (string Icon in v.Icons.Keys)
-                {
-                    cbm_Line3Icons.Items.Add(Icon);
-                }
+                //foreach (string Icon in v.Icons.Keys)
+                //{
+                //    cbm_Line3Icons.Items.Add(Icon);
+                //}
                 break;
 
             default:
@@ -409,10 +409,10 @@ namespace Voodoo_Testing
             case "Icon":
                 txt_Line4.Visibility = Visibility.Collapsed;
                 cbm_Line4Icons.Visibility = Visibility.Visible;
-                foreach (string Icon in v.Icons.Keys)
-                {
-                    cbm_Line4Icons.Items.Add(Icon);
-                }
+                //foreach (string Icon in v.Icons.Keys)
+                //{
+                //    cbm_Line4Icons.Items.Add(Icon);
+                //}
                 break;
 
             default:
@@ -446,10 +446,10 @@ namespace Voodoo_Testing
             case "Icon":
                 txt_Line5.Visibility = Visibility.Collapsed;
                 cbm_Line5Icons.Visibility = Visibility.Visible;
-                foreach (string Icon in v.Icons.Keys)
-                {
-                    cbm_Line5Icons.Items.Add(Icon);
-                }
+                //foreach (string Icon in v.Icons.Keys)
+                //{
+                //    cbm_Line5Icons.Items.Add(Icon);
+                //}
                 break;
 
             default:

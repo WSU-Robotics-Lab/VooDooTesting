@@ -8,130 +8,183 @@
         Title="MainWindow" Height="475.45" Width="808.484">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="73*"/>
-            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.20*"/>
+        </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2" Margin="0">
 
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+            <!--<StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                 <Button x:Name="btn_Login" Content="Login to Voodoo Server" Click="btn_Login_Click" Height="60" Width="400" />
                 <Button x:Name="btn_Logoff" Content="Log Off" Click="btn_Logoff_Click" Height="60" Width="400"/>
-            </StackPanel>
+            </StackPanel>-->
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <!--<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <Label Content="URL" Width="100" />
                 <TextBox x:Name="txt_URL" Text="Https://www.sku-keeper.com/api" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="User Name" Width="100" />
-                <TextBox x:Name="txt_UserName" Text="ddeegan" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <Label Content="Password" Width="100" />
-                <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" Width="300" HorizontalAlignment="Left"/>
-            </StackPanel>
+            </StackPanel>-->
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <!--<Viewbox Grid.Row="0">-->
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Label Content="User Name" Width="100" />
+                        <TextBox x:Name="txt_UserName" Text="ddeegan" Width="150" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10" HorizontalAlignment="Center">
+                        <Label Content="Password" Width="100" />
+                        <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" Width="150" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+            <!--</Viewbox>-->
+
+
+            <!--<Viewbox Grid.Row="1">-->
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+                    <StackPanel>
+                        <Label Content="Device ID" Width="150" />
+                        <ComboBox x:Name="cmb_DeviceID">
+                            <ComboBoxItem Content="EC7951:EBC981" />
+                            <ComboBoxItem Content="E40662:26F78E" />
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel  AllowDrop="True">
+                        <Label Content="Message Type" Width="150" />
+                        <ComboBox x:Name="cmb_MessageType" >
+                            <ComboBoxItem Content="Flash" />
+                            <ComboBoxItem Content="Pick" />
+                            <ComboBoxItem Content="Static" />
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel  AllowDrop="True">
+                        <Label Content="Music" Width="150" />
+                        <ComboBox x:Name="cmb__Music" />
+                    </StackPanel>
+                    <StackPanel  AllowDrop="True">
+                        <Label Content="Button Color" Width="150" />
+                        <ComboBox x:Name="cmb_ButtonColor" />
+                    </StackPanel>
+                    <StackPanel  AllowDrop="True">
+                        <Label Content="Color Duration (Sec)" Width="125" />
+                        <TextBox x:Name="txt_ButtonColorDuration" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="22" />
+                    </StackPanel>
+                    <StackPanel  AllowDrop="True">
+                        <Label Content="Remain On" Width="75" />
+                        <CheckBox x:Name="Chk_RemainOn" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30, 0, 0, 0"/>
+                    </StackPanel>
+                </StackPanel>
+            <!--</Viewbox>-->
+
+
+            <Viewbox Grid.Row="2">
                 <StackPanel>
-                    <Label Content="Device ID" Width="150" />
-                    <ComboBox x:Name="cmb_DeviceID">
-                        <ComboBoxItem Content="EC7951:EBC981" />
-                        <ComboBoxItem Content="E40662:26F78E" />
-                    </ComboBox>
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="Line 1" Width="50" />
+                        <ComboBox Name="cbm_Line1" Width="50" SelectedItem="Text" SelectionChanged="cbm_Line1_SelectionChanged">
+                            <ComboBoxItem Content="Text"/>
+                            <ComboBoxItem Content="Icon"/>
+                            <ComboBoxItem Content="Barcode"/>
+                            <ComboBoxItem Content="QRCode"/>
+                        </ComboBox>
+                        <TextBox x:Name="txt_Line1" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" MaxLength="24" Margin="0, 0, 50, 0"/>
+                        <ComboBox Name="cbm_Line1Icons" Visibility="Visible" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                        <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Line 2" Width="50" />
+                        <ComboBox Name="cbm_Line2" Width="50" SelectionChanged="cbm_Line2_SelectionChanged">
+                            <ComboBoxItem Content="Text"/>
+                            <ComboBoxItem Content="Icon"/>
+                            <ComboBoxItem Content="Barcode"/>
+                            <ComboBoxItem Content="QRCode"/>
+                        </ComboBox>
+                        <TextBox x:Name="txt_Line2" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0"/>
+                        <ComboBox Name="cbm_Line2Icons" Visibility="Visible" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                        <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Line 3" Width="50" />
+                        <ComboBox Name="cbm_Line3" Width="50" SelectionChanged="cbm_Line3_SelectionChanged">
+                            <ComboBoxItem Content="Text"/>
+                            <ComboBoxItem Content="Icon"/>
+                            <ComboBoxItem Content="Barcode"/>
+                            <ComboBoxItem Content="QRCode"/>
+                        </ComboBox>
+                        <TextBox x:Name="txt_Line3" Visibility="Visible" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0"/>
+                        <ComboBox Name="cbm_Line3Icons" Visibility="Collapsed" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                        <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Line 4" Width="50" />
+                        <ComboBox Name="cbm_Line4" Width="50" SelectionChanged="cbm_Line4_SelectionChanged">
+                            <ComboBoxItem Content="Text"/>
+                            <ComboBoxItem Content="Icon"/>
+                            <ComboBoxItem Content="Barcode"/>
+                            <ComboBoxItem Content="QRCode"/>
+                        </ComboBox>
+                        <TextBox x:Name="txt_Line4" Visibility="Visible" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0"/>
+                        <ComboBox Name="cbm_Line4Icons" Visibility="Collapsed" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                        <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                        <Label Content="Line 5" Width="50" />
+                        <ComboBox Name="cbm_Line5" Width="50" SelectionChanged="cbm_Line5_SelectionChanged">
+                            <ComboBoxItem Content="Text"/>
+                            <ComboBoxItem Content="Icon"/>
+                            <ComboBoxItem Content="Barcode"/>
+                            <ComboBoxItem Content="QRCode"/>
+                        </ComboBox>
+                        <TextBox x:Name="txt_Line5" Visibility="Visible" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0"/>
+                        <ComboBox Name="cbm_Line5Icons" Visibility="Collapsed" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left" Margin="0, 0, 50, 0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                        <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel  AllowDrop="True">
-                    <Label Content="Message Type" Width="150" />
-                    <ComboBox x:Name="cmb_MessageType" >
-                        <ComboBoxItem Content="Flash" />
-                        <ComboBoxItem Content="Pick" />
-                        <ComboBoxItem Content="Static" />
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel  AllowDrop="True">
-                    <Label Content="Music" Width="150" />
-                    <ComboBox x:Name="cmb__Music" />
-                </StackPanel>
-                <StackPanel  AllowDrop="True">
-                    <Label Content="Button Color" Width="150" />
-                    <ComboBox x:Name="cmb_ButtonColor" />
-                </StackPanel>
-                <StackPanel  AllowDrop="True">
-                    <Label Content="Color Duration (Sec)" Width="125" />
-                    <TextBox x:Name="txt_ButtonColorDuration" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="22" />
-                </StackPanel>
-                <StackPanel  AllowDrop="True">
-                    <Label Content="Remain On" Width="150" />
-                    <CheckBox x:Name="Chk_RemainOn" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30, 0, 0, 0"/>
-                </StackPanel>
-            </StackPanel>
+            </Viewbox>
 
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" >
-                    <Label Content="Line 1" Width="50" />
-                    <ComboBox Name="cbm_Line1" Width="50" SelectedItem="Text" SelectionChanged="cbm_Line1_SelectionChanged">
-                        <ComboBoxItem Content="Text"/>
-                        <ComboBoxItem Content="Icon"/>
-                        <ComboBoxItem Content="Barcode"/>
-                        <ComboBoxItem Content="QRCode"/>
-                    </ComboBox>
-                    <TextBox x:Name="txt_Line1" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" MaxLength="24"/>
-                    <ComboBox Name="cbm_Line1Icons" Visibility="Visible" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                    <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Line 2" Width="50" />
-                    <ComboBox Name="cbm_Line2" Width="50" SelectionChanged="cbm_Line2_SelectionChanged">
-                        <ComboBoxItem Content="Text"/>
-                        <ComboBoxItem Content="Icon"/>
-                        <ComboBoxItem Content="Barcode"/>
-                        <ComboBoxItem Content="QRCode"/>
-                    </ComboBox>
-                    <TextBox x:Name="txt_Line2" Visibility="Visible" Width="300" HorizontalAlignment="Left"/>
-                    <ComboBox Name="cbm_Line2Icons" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Line 3" Width="50" />
-                    <ComboBox Name="cbm_Line3" Width="50" SelectionChanged="cbm_Line3_SelectionChanged">
-                        <ComboBoxItem Content="Text"/>
-                        <ComboBoxItem Content="Icon"/>
-                        <ComboBoxItem Content="Barcode"/>
-                        <ComboBoxItem Content="QRCode"/>
-                    </ComboBox>
-                    <TextBox x:Name="txt_Line3" Visibility="Visible" Width="300" HorizontalAlignment="Left"/>
-                    <ComboBox Name="cbm_Line3Icons" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Line 4" Width="50" />
-                    <ComboBox Name="cbm_Line4" Width="50" SelectionChanged="cbm_Line4_SelectionChanged">
-                        <ComboBoxItem Content="Text"/>
-                        <ComboBoxItem Content="Icon"/>
-                        <ComboBoxItem Content="Barcode"/>
-                        <ComboBoxItem Content="QRCode"/>
-                    </ComboBox>
-                    <TextBox x:Name="txt_Line4" Visibility="Visible" Width="300" HorizontalAlignment="Left"/>
-                    <ComboBox Name="cbm_Line4Icons" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Label Content="Line 5" Width="50" />
-                    <ComboBox Name="cbm_Line5" Width="50" SelectionChanged="cbm_Line5_SelectionChanged">
-                        <ComboBoxItem Content="Text"/>
-                        <ComboBoxItem Content="Icon"/>
-                        <ComboBoxItem Content="Barcode"/>
-                        <ComboBoxItem Content="QRCode"/>
-                    </ComboBox>
-                    <TextBox x:Name="txt_Line5" Visibility="Visible" Width="300" HorizontalAlignment="Left"/>
-                    <ComboBox Name="cbm_Line5Icons" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" />
-                </StackPanel>
-            </StackPanel>
-            <Button x:Name="btn_SendInstruction" Content="Send Instruction" Height="60" Width="800" Click="btn_SendInstruction_Click" />
+            <Button x:Name="btn_SendInstruction" Grid.Row="4" Content="Send Instruction" Height="60" Width="800" Click="btn_SendInstruction_Click" />
         </StackPanel>
     </Grid>
 </Window>
