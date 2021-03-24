@@ -75,12 +75,12 @@
                         <ComboBoxItem Content="QRCode"/>
                     </ComboBox>
                     <TextBox x:Name="txt_Line1" Visibility="Collapsed" Width="300" HorizontalAlignment="Left" MaxLength="24"/>
-                    <ComboBox Name="cbm_Line1Icons" Visibility="Visible" Width="300" HorizontalAlignment="Left">
+                    <ComboBox Name="cbm_Line1Icons" Visibility="Visible" ItemsSource="{Binding Images}" Width="300" HorizontalAlignment="Left">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image x:Name="cbm_Line1Images" Source="/Images\test.png" Width="15" Height="15"/>
-                                    <TextBlock x:Name="cbm_Line1Text" Text="test" />
+                                    <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                    <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
