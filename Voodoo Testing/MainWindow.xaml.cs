@@ -264,25 +264,25 @@ namespace Voodoo_Testing
             switch ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
-                    txt_Line1.Visibility = Visibility.Visible;
-                    cbm_Line1Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line1Txt.Visibility = Visibility.Visible;
+                    vbx_Line1Cbb.Visibility = Visibility.Collapsed;
                     txt_Line1.MaxLength = 24;
                     break;
                 case "Barcode":
-                    txt_Line1.Visibility = Visibility.Visible;
-                    cbm_Line1Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line1Txt.Visibility = Visibility.Visible;
+                    vbx_Line1Cbb.Visibility = Visibility.Collapsed;
                     txt_Line1.MaxLength = 15;
                     break;
 
                 case "QRCode":
-                    txt_Line1.Visibility = Visibility.Visible;
-                    cbm_Line1Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line1Txt.Visibility = Visibility.Visible;
+                    vbx_Line1Cbb.Visibility = Visibility.Collapsed;
                     txt_Line1.MaxLength = 23;
                     break;
 
                 case "Icon":
-                    txt_Line1.Visibility = Visibility.Collapsed;
-                    cbm_Line1Icons.Visibility = Visibility.Visible;
+                    vbx_Line1Txt.Visibility = Visibility.Collapsed;
+                    vbx_Line1Cbb.Visibility = Visibility.Visible;
                     //foreach (string Icon in v.Icons.Keys)
                     //{
                     //    cbm_Line1Icons.Items.Add(Icon);
@@ -301,29 +301,25 @@ namespace Voodoo_Testing
             switch ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
-                    txt_Line2.Visibility = Visibility.Visible;
-                    cbm_Line2Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line2Txt.Visibility = Visibility.Visible;
+                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 24;
                     break;
                 case "Barcode":
-                    txt_Line2.Visibility = Visibility.Visible;
-                    cbm_Line2Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line2Txt.Visibility = Visibility.Visible;
+                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 15;
                     break;
 
                 case "QRCode":
-                    txt_Line2.Visibility = Visibility.Visible;
-                    cbm_Line2Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line2Txt.Visibility = Visibility.Visible;
+                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 23;
                     break;
 
                 case "Icon":
-                    txt_Line2.Visibility = Visibility.Collapsed;
-                    cbm_Line2Icons.Visibility = Visibility.Visible;
-                    //foreach (string Icon in v.Icons.Keys)
-                    //{
-                    //    cbm_Line2Icons.Items.Add(Icon);
-                    //}
+                    vbx_Line2Txt.Visibility = Visibility.Collapsed;
+                    vbx_Line2Cbb.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -338,34 +334,30 @@ namespace Voodoo_Testing
             switch ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
-                    txt_Line3.Visibility = Visibility.Visible;
-                    cbm_Line3Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line3Txt.Visibility = Visibility.Visible;
+                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 24;
                     break;
                 case "Barcode":
-                    txt_Line3.Visibility = Visibility.Visible;
-                    cbm_Line3Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line3Txt.Visibility = Visibility.Visible;
+                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 15;
                     break;
 
                 case "QRCode":
-                    txt_Line3.Visibility = Visibility.Visible;
-                    cbm_Line3Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line3Txt.Visibility = Visibility.Visible;
+                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 23;
                     break;
 
                 case "Icon":
-                    txt_Line3.Visibility = Visibility.Collapsed;
-                    cbm_Line3Icons.Visibility = Visibility.Visible;
-                    //foreach (string Icon in v.Icons.Keys)
-                    //{
-                    //    cbm_Line3Icons.Items.Add(Icon);
-                    //}
+                    vbx_Line3Txt.Visibility = Visibility.Collapsed;
+                    vbx_Line3Cbb.Visibility = Visibility.Visible;
                     break;
 
                 default:
                     txt_Line3.Visibility = Visibility.Visible;
-                    cbm_Line3Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -375,34 +367,30 @@ namespace Voodoo_Testing
             switch ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
-                    txt_Line4.Visibility = Visibility.Visible;
-                    cbm_Line4Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line4Txt.Visibility = Visibility.Visible;
+                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 24;
                     break;
                 case "Barcode":
-                    txt_Line4.Visibility = Visibility.Visible;
-                    cbm_Line4Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line4Txt.Visibility = Visibility.Visible;
+                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 15;
                     break;
 
                 case "QRCode":
-                    txt_Line4.Visibility = Visibility.Visible;
-                    cbm_Line4Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line4Txt.Visibility = Visibility.Visible;
+                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 23;
                     break;
 
                 case "Icon":
-                    txt_Line4.Visibility = Visibility.Collapsed;
-                    cbm_Line4Icons.Visibility = Visibility.Visible;
-                    //foreach (string Icon in v.Icons.Keys)
-                    //{
-                    //    cbm_Line4Icons.Items.Add(Icon);
-                    //}
+                    vbx_Line4Txt.Visibility = Visibility.Collapsed;
+                    vbx_Line4Cbb.Visibility = Visibility.Visible;
                     break;
 
                 default:
-                    txt_Line4.Visibility = Visibility.Visible;
-                    cbm_Line4Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line4Txt.Visibility = Visibility.Visible;
+                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -412,34 +400,30 @@ namespace Voodoo_Testing
             switch ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
-                    txt_Line5.Visibility = Visibility.Visible;
-                    cbm_Line5Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line5Txt.Visibility = Visibility.Visible;
+                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 24;
                     break;
                 case "Barcode":
-                    txt_Line5.Visibility = Visibility.Visible;
-                    cbm_Line5Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line5Txt.Visibility = Visibility.Visible;
+                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 15;
                     break;
 
                 case "QRCode":
-                    txt_Line5.Visibility = Visibility.Visible;
-                    cbm_Line5Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line5Txt.Visibility = Visibility.Visible;
+                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 23;
                     break;
 
                 case "Icon":
-                    txt_Line5.Visibility = Visibility.Collapsed;
-                    cbm_Line5Icons.Visibility = Visibility.Visible;
-                    //foreach (string Icon in v.Icons.Keys)
-                    //{
-                    //    cbm_Line5Icons.Items.Add(Icon);
-                    //}
+                    vbx_Line5Txt.Visibility = Visibility.Collapsed;
+                    vbx_Line5Cbb.Visibility = Visibility.Visible;
                     break;
 
                 default:
-                    txt_Line5.Visibility = Visibility.Visible;
-                    cbm_Line5Icons.Visibility = Visibility.Collapsed;
+                    vbx_Line5Txt.Visibility = Visibility.Visible;
+                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
