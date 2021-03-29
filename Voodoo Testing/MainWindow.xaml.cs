@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +14,7 @@ using System.Windows.Shapes;
 using System.Net;
 using System.IO;    // for StreamReader
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Voodoo_Testing
 {
@@ -66,6 +66,7 @@ namespace Voodoo_Testing
 
                 });
             }
+
         }
 
         #region "Methods"
@@ -80,41 +81,105 @@ namespace Voodoo_Testing
             short time = 0;
             string color = "";
             string music = "";
+            bool abort = false;
 
-            if (cmb_DeviceID.SelectedItem.ToString() == "")
+            if (cmb_DeviceID.SelectedItem != null)
             {
-                System.Windows.MessageBox.Show("Must Enter Device ID");
-                return "";
+                if (cmb_DeviceID.SelectedItem.ToString() == "")
+                {
+                    brd_cmb_DeviceID.BorderBrush = new SolidColorBrush(Colors.Red);
+                    abort = true;
+                }
+                else
+                {
+                    brd_cmb_DeviceID.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                }
+            }
+            else
+            {
+                brd_cmb_DeviceID.BorderBrush = new SolidColorBrush(Colors.Red);
+                abort = true;
             }
 
 
-            if (cmb_MessageType.SelectedItem.ToString() == "")
+            if (cmb_MessageType.SelectedItem != null)
             {
-                System.Windows.MessageBox.Show("Must Enter Message Type");
-                return "";
+                if (cmb_MessageType.SelectedItem.ToString() == "")
+                {
+                    brd_cmb_MessageType.BorderBrush = new SolidColorBrush(Colors.Red);
+                    abort = true;
+                }
+                else
+                {
+                    brd_cmb_MessageType.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                }
+            }
+            else
+            {
+                brd_cmb_MessageType.BorderBrush = new SolidColorBrush(Colors.Red);
+                abort = true;
             }
 
 
-            if (cmb__Music.SelectedItem.ToString() != "")
+            if (cmb__Music.SelectedItem != null)
             {
-                music = v.Music[cmb__Music.Text];
+                if (cmb__Music.SelectedItem.ToString() != "")
+                {
+                    music = v.Music[cmb__Music.Text];
+                    brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                }
+                else
+                {
+                    brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Red);
+                    abort = true;
+                }
+            }
+            else
+            {
+                brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Red);
+                abort = true;
             }
 
 
-            if (cmb_ButtonColor.SelectedItem.ToString() != "")
+            if (cmb_ButtonColor.SelectedItem != null)
             {
-                color = v.Colors[cmb_ButtonColor.Text];
+                if (cmb_ButtonColor.SelectedItem.ToString() != "")
+                {
+                    color = v.Colors[cmb_ButtonColor.Text];
+                    brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                }
+                else
+                {
+                    brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Red);
+                    abort = true;
+                }
+            }
+            else
+            {
+                brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Red);
+                abort = true;
             }
 
 
             if (Chk_RemainOn.IsChecked == false)
             {
-                time = short.Parse(txt_ButtonColorDuration.Text);
+                if (txt_ButtonColorDuration.Text != "")
+                {
+                    time = short.Parse(txt_ButtonColorDuration.Text);
+                    txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                }
+                else
+                {
+                    txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Red);
+                    abort = true;
+                }
             }
             else
             {
                 txt_ButtonColorDuration.Text = "0";
+                txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
             }
+
 
             switch (cbm_Line1.SelectedItem.ToString().Split(' ').Last())
             {
@@ -226,6 +291,11 @@ namespace Voodoo_Testing
                     break;
             }
 
+            if (abort == true)
+            {
+                return "";
+            }
+
             v.setUsernameAndPassword(txt_UserName.Text, txt_Password.Text);
             v.setDeviceID(cmb_DeviceID.Text);
             v.setOperation(VooDooAPI.operationType.display);
@@ -247,16 +317,25 @@ namespace Voodoo_Testing
         //--------------------------------- Send Instructions  --------------------------
         private void btn_SendInstruction_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Queue Q in Queued)
+            if (Queued.Count != 0)
             {
-                new Thread(() =>
+                foreach (Queue Q in Queued)
                 {
-                    Q.TimeSent = DateTime.Now;
-                    v.SendInstruction(Q.URL);
-                    RemoveLine();
-                    Thread.Sleep(100);
-                }).Start();
+                    new Thread(() =>
+                    {
+                        Q.TimeSent = DateTime.Now;
+                        v.SendInstruction(Q.URL);
+                        RemoveLine();
+                        Thread.Sleep(100);
+                    }).Start();
+                }
             }
+            else
+            {
+                MessageBox.Show("Queue messages before sending");
+                return;
+            }
+
         }
 
         private void cbm_Line1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -433,6 +512,10 @@ namespace Voodoo_Testing
         private void btn_QueueInstruction_Click(object sender, RoutedEventArgs e)
         {
             string URL = CreateURL();
+            if (URL == "")
+            {
+                return;
+            }
             int ID;
             bool response;
             if (Chk_ResponseRequired.IsChecked == true)
@@ -452,37 +535,163 @@ namespace Voodoo_Testing
                 ID = Queued[Queued.Count - 1].ID + 1;
             }
             Queued.Add(new Queue(ID, URL, response));
-            if (txt_Instructions.Text == "")
+            FillText();
+        }
+
+        private void btn_InsertInstruction_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtInsertID.Text == "" || int.Parse(txtInsertID.Text.ToString()) >= Queued.Count())
             {
-                txt_Instructions.Text = txt_Instructions.Text + URL + " ID:" + ID + " Response:" + response.ToString();
+                txtInsertID.BorderBrush = new SolidColorBrush(Colors.Red);
+                return;
             }
             else
             {
-                txt_Instructions.Text = txt_Instructions.Text + "\n" + URL + " ID:" + ID + " Response:" + response.ToString();
+                txtInsertID.BorderBrush = new SolidColorBrush(Colors.Transparent);
             }
+
+            string URL = CreateURL();
+            if (URL == "")
+            {
+                return;
+            }
+
+            bool response;
+
+            if (Chk_ResponseRequired.IsChecked == true)
+            {
+                response = true;
+            }
+            else
+            {
+                response = false;
+            }
+
+            int loop = 1;
+
+            Queued.RemoveAt(int.Parse(txtInsertID.Text.ToString()));
+            Queued.Add(new Queue(int.Parse(txtInsertID.Text.ToString()), URL, response));
+            foreach (Queue q in Queued) if (q.ID > int.Parse(txtInsertID.Text.ToString()))
+                {
+                    q.ID = int.Parse(txtInsertID.Text.ToString()) + loop;
+                    loop += 1;
+                }
+
+
+            FillText();
         }
 
         private void btn_RemoveInstruction_Click(object sender, RoutedEventArgs e)
         {
-            RemoveLine();
+            if (txtDeleteID.Text == "")
+            {
+                RemoveLine();
+            }
+
+            else
+            {
+                if (Queued.Count >= int.Parse(txtDeleteID.Text.ToString()))
+                {
+                    int loop = 0;
+
+                    Queued.RemoveAt(int.Parse(txtDeleteID.Text.ToString()));
+                    foreach (Queue q in Queued) if (q.ID > int.Parse(txtDeleteID.Text.ToString()))
+                        {
+                            q.ID = int.Parse(txtDeleteID.Text.ToString()) + loop;
+                            loop += 1;
+                        }
+
+                    FillText();
+                }
+            }
         }
 
         public void RemoveLine()
         {
-            //TO DO - ERRORS WHEN ERASING LAST LINE
             Dispatcher.Invoke(() =>
             {
-                Queued.RemoveAt(Queued.Count - 1);
-                if (txt_Instructions.Text == "")
+                if (Queued.Count != 0)
                 {
-                    return;
-                }
-                else
-                {
-                    txt_Instructions.Text = txt_Instructions.Text.Replace("\n" + txt_Instructions.Text.Split('\n')[txt_Instructions.Text.Split('\n').Length - 1], "");
+                    Queued.RemoveAt(Queued.Count - 1);
+                    txt_Instructions.Text = "";
+                    Queued = Queued.OrderBy(o => o.ID).ToList();
+                    foreach (Queue q in Queued)
+                    {
+                        txt_Instructions.Text = txt_Instructions.Text + "\n" + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
+                    }
                 }
             });
         }
+
+        public void FillText()
+        {
+            txt_Instructions.Text = "";
+            Queued = Queued.OrderBy(o => o.ID).ToList();
+            foreach (Queue q in Queued)
+            {
+                if (q.ID == 0)
+                {
+                    txt_Instructions.Text = txt_Instructions.Text + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
+                }
+                else
+                {
+                    txt_Instructions.Text = txt_Instructions.Text + "\n" + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
+                }
+
+            }
+        }
+
+        private void Chk_RemainOn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            txt_ButtonColorDuration.Text = "";
+            txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
+        }
+
+        private void Chk_RemainOn_Checked(object sender, RoutedEventArgs e)
+        {
+            txt_ButtonColorDuration.Text = "0";
+            txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
+        }
+
+        private void btn_Import_Click(object sender, RoutedEventArgs e)
+        {
+            Queued.Clear();
+            System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = false;
+
+            choofdlog.ShowDialog();
+            string line;
+
+            // Read the file and display it line by line.  
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(choofdlog.FileName);
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line != "")
+                {
+                    Queue q = new Queue(int.Parse(line.Split(':').First()), line.Split(':')[1] + line.Split(':')[2] + line.Split(':')[3], bool.Parse(line.Split(':').Last()));
+                    Queued.Add(q);
+                }
+            }
+
+            file.Close();
+
+            FillText();
+        }
+
+        private void Btn_Export_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.SaveFileDialog choofdlog = new System.Windows.Forms.SaveFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+
+            choofdlog.ShowDialog();
+            File.WriteAllText(choofdlog.FileName + ".txt", txt_Instructions.Text);
+
+        }
+
     }
 
     #region "Exceptions"
