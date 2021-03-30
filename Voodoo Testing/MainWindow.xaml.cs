@@ -53,6 +53,10 @@ namespace Voodoo_Testing
             {
                 cmb_ButtonColor.Items.Add(Color);
             }
+            foreach (string MType in v.MessageType)
+            {
+                cmb_MessageType.Items.Add(MType);
+            }
 
 
             this.DataContext = this;
@@ -71,8 +75,11 @@ namespace Voodoo_Testing
 
         #region "Methods"
 
-        public string CreateURL()
+        public (string, int) CreateURL()
         {
+            string url = "";
+            int ID = 0;
+            string DeviceID = "";
             string Line1 = "";
             string Line2 = "";
             string Line3 = "";
@@ -82,7 +89,11 @@ namespace Voodoo_Testing
             string color = "";
             string music = "";
             bool abort = false;
+            bool response = false;
+            string opWord = "";
+            VooDooAPI.operationType OpType = VooDooAPI.operationType.display;
 
+            //Checking Device ID is selected
             if (cmb_DeviceID.SelectedItem != null)
             {
                 if (cmb_DeviceID.SelectedItem.ToString() == "")
@@ -92,6 +103,7 @@ namespace Voodoo_Testing
                 }
                 else
                 {
+                    DeviceID = cmb_DeviceID.Text;
                     brd_cmb_DeviceID.BorderBrush = new SolidColorBrush(Colors.Transparent);
                 }
             }
@@ -101,7 +113,7 @@ namespace Voodoo_Testing
                 abort = true;
             }
 
-
+            //Checking Message Type is Selected
             if (cmb_MessageType.SelectedItem != null)
             {
                 if (cmb_MessageType.SelectedItem.ToString() == "")
@@ -111,6 +123,27 @@ namespace Voodoo_Testing
                 }
                 else
                 {
+                    opWord = cmb_MessageType.Text;
+                    switch (opWord)
+                    {
+                        case "display":
+                            OpType = VooDooAPI.operationType.display;
+                            break;
+                        case "flash":
+                            OpType = VooDooAPI.operationType.flash;
+                            break;
+                        case "static":
+                            OpType = VooDooAPI.operationType.opStatic;
+                            break;
+                        case "static2":
+                            OpType = VooDooAPI.operationType.opStatic2;
+                            break;
+                        case "location":
+                            OpType = VooDooAPI.operationType.location;
+                            break;
+                        default:
+                            break;
+                    }
                     brd_cmb_MessageType.BorderBrush = new SolidColorBrush(Colors.Transparent);
                 }
             }
@@ -120,7 +153,7 @@ namespace Voodoo_Testing
                 abort = true;
             }
 
-
+            //Checking Music is Selected
             if (cmb__Music.SelectedItem != null)
             {
                 if (cmb__Music.SelectedItem.ToString() != "")
@@ -140,7 +173,7 @@ namespace Voodoo_Testing
                 abort = true;
             }
 
-
+            //Checking Button Colors is Selected
             if (cmb_ButtonColor.SelectedItem != null)
             {
                 if (cmb_ButtonColor.SelectedItem.ToString() != "")
@@ -160,7 +193,7 @@ namespace Voodoo_Testing
                 abort = true;
             }
 
-
+            //If remain on is checked set color duration to 0
             if (Chk_RemainOn.IsChecked == false)
             {
                 if (txt_ButtonColorDuration.Text != "")
@@ -180,7 +213,18 @@ namespace Voodoo_Testing
                 txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
             }
 
+            //Checking Response Required is Checked
+            if (Chk_ResponseRequired.IsChecked == true)
+            {
+                response = true;
+            }
+            else
+            {
+                response = false;
+            }
 
+
+            //Set lines based on entered text - blank is ok
             switch (cbm_Line1.SelectedItem.ToString().Split(' ').Last())
             {
                 case "Text":
@@ -195,7 +239,10 @@ namespace Voodoo_Testing
                     break;
 
                 case "Icon":
-                    Line1 = "%5c" + v.Icons[cbm_Line1Icons.SelectedItem.ToString()];
+                    //object test = cbm_Line1Icons.SelectedValue;
+                    //test.
+                    //PicClass t = new PicClass();
+                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line1Icons.SelectedValue).ImgName];
                     break;
 
                 default:
@@ -291,19 +338,78 @@ namespace Voodoo_Testing
                     break;
             }
 
-            if (abort == true)
+            //Set transaction ID
+            if (Queued.Count == 0)
             {
-                return "";
+                ID = 0;
+            }
+            else
+            {
+                ID = Queued[Queued.Count - 1].ID + 1;
             }
 
-            v.setUsernameAndPassword(txt_UserName.Text, txt_Password.Text);
-            v.setDeviceID(cmb_DeviceID.Text);
-            v.setOperation(VooDooAPI.operationType.display);
-            v.setTune(music);
-            v.setDisplay(Line1 + "~" + Line2, Line3 + "~" + Line4 + "~" + Line5);
-            v.setColor(color);
-            v.setTime(time);
-            return v.CreateURL();
+            //Abort if any data was missing
+            if (abort == true)
+            {
+                return ("", 0);
+            }
+
+            //okay, set up the whole url for the get request
+            //see:  https://voodoorobotics.com/constructing-a-url/
+            url = v.baseurl + "api/" + DeviceID + "/" + opWord + "/" + Line1 + "~" + Line2 + "/" + Line3 + "~" + Line4 + "~" + Line5;
+            switch (OpType)
+            {
+                case VooDooAPI.operationType.display:
+                    url += "/" + music + "/" + time.ToString() + color;
+                    break;
+                case VooDooAPI.operationType.flash:
+                    url += "/" + music + "/" + time.ToString() + color;
+                    break;
+                case VooDooAPI.operationType.opStatic:
+                case VooDooAPI.operationType.opStatic2:
+                case VooDooAPI.operationType.location:
+                default:
+                    break;
+                    //do nothing!
+            }
+
+            //If response is requested then add transaction ID
+            if (response)
+            {
+                url += "/TransactionID" + ID;
+            }
+
+            return (url, ID);
+        }
+
+        public void RemoveLine()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                if (Queued.Count != 0)
+                {
+                    Queued.RemoveAt(Queued.Count - 1);
+                    FillText();
+                }
+            });
+        }
+
+        public void FillText()
+        {
+            txt_Instructions.Text = "";
+            Queued = Queued.OrderBy(o => o.ID).ToList();
+            foreach (Queue q in Queued)
+            {
+                if (q.ID == 0)
+                {
+                    txt_Instructions.Text = txt_Instructions.Text + q.ID + ":" + q.URL;
+                }
+                else
+                {
+                    txt_Instructions.Text = txt_Instructions.Text + "\n" + q.ID + ":" + q.URL;
+                }
+
+            }
         }
 
         #endregion
@@ -507,34 +613,16 @@ namespace Voodoo_Testing
             }
         }
 
-        #endregion
-
         private void btn_QueueInstruction_Click(object sender, RoutedEventArgs e)
         {
-            string URL = CreateURL();
-            if (URL == "")
+            string url;
+            int ID;
+            (url, ID) = CreateURL();
+            if (url == "")
             {
                 return;
             }
-            int ID;
-            bool response;
-            if (Chk_ResponseRequired.IsChecked == true)
-            {
-                response = true;
-            }
-            else
-            {
-                response = false;
-            }
-            if (Queued.Count == 0)
-            {
-                ID = 0;
-            }
-            else
-            {
-                ID = Queued[Queued.Count - 1].ID + 1;
-            }
-            Queued.Add(new Queue(ID, URL, response));
+            Queued.Add(new Queue(ID, url));
             FillText();
         }
 
@@ -549,28 +637,17 @@ namespace Voodoo_Testing
             {
                 txtInsertID.BorderBrush = new SolidColorBrush(Colors.Transparent);
             }
-
-            string URL = CreateURL();
-            if (URL == "")
+            string url;
+            int ID;
+            (url, ID) = CreateURL();
+            if (url == "")
             {
                 return;
             }
-
-            bool response;
-
-            if (Chk_ResponseRequired.IsChecked == true)
-            {
-                response = true;
-            }
-            else
-            {
-                response = false;
-            }
-
             int loop = 1;
 
             Queued.RemoveAt(int.Parse(txtInsertID.Text.ToString()));
-            Queued.Add(new Queue(int.Parse(txtInsertID.Text.ToString()), URL, response));
+            Queued.Add(new Queue(int.Parse(txtInsertID.Text.ToString()), url));
             foreach (Queue q in Queued) if (q.ID > int.Parse(txtInsertID.Text.ToString()))
                 {
                     q.ID = int.Parse(txtInsertID.Text.ToString()) + loop;
@@ -606,41 +683,6 @@ namespace Voodoo_Testing
             }
         }
 
-        public void RemoveLine()
-        {
-            Dispatcher.Invoke(() =>
-            {
-                if (Queued.Count != 0)
-                {
-                    Queued.RemoveAt(Queued.Count - 1);
-                    txt_Instructions.Text = "";
-                    Queued = Queued.OrderBy(o => o.ID).ToList();
-                    foreach (Queue q in Queued)
-                    {
-                        txt_Instructions.Text = txt_Instructions.Text + "\n" + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
-                    }
-                }
-            });
-        }
-
-        public void FillText()
-        {
-            txt_Instructions.Text = "";
-            Queued = Queued.OrderBy(o => o.ID).ToList();
-            foreach (Queue q in Queued)
-            {
-                if (q.ID == 0)
-                {
-                    txt_Instructions.Text = txt_Instructions.Text + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
-                }
-                else
-                {
-                    txt_Instructions.Text = txt_Instructions.Text + "\n" + q.ID + ":" + q.URL + ":R:" + q.ResponseRequired.ToString();
-                }
-
-            }
-        }
-
         private void Chk_RemainOn_Unchecked(object sender, RoutedEventArgs e)
         {
             txt_ButtonColorDuration.Text = "";
@@ -671,7 +713,7 @@ namespace Voodoo_Testing
             {
                 if (line != "")
                 {
-                    Queue q = new Queue(int.Parse(line.Split(':').First()), line.Split(':')[1] + line.Split(':')[2] + line.Split(':')[3], bool.Parse(line.Split(':').Last()));
+                    Queue q = new Queue(int.Parse(line.Split(':').First()), line.Split(':')[1] + line.Split(':')[2] + line.Split(':')[3]);
                     Queued.Add(q);
                 }
             }
@@ -692,31 +734,18 @@ namespace Voodoo_Testing
 
         }
 
-    }
-
-    #region "Exceptions"
-
-    //*******************************************************************************
-    //                                  Illegal Argument Exception     
-    //*******************************************************************************
-
-    public class IllegalArgumentException : Exception
-    {
-        public IllegalArgumentException(string message) : base(message)
+        private void txt_UserName_TextChanged(object sender, TextChangedEventArgs e)
         {
+            v.setUsername(txt_UserName.Text);
         }
-    }
 
-    //*******************************************************************************
-    //                                  Runtime Exception     
-    //*******************************************************************************
-    public class RuntimeException : Exception
-    {
-        public RuntimeException(string message) : base(message)
+        private void txt_Password_TextChanged(object sender, TextChangedEventArgs e)
         {
+            v.setPassword(txt_Password.Text);
         }
+
+        #endregion
+
+
     }
-
-    #endregion
-
 }

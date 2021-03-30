@@ -12,13 +12,11 @@ namespace Voodoo_Testing
         public string URL;
         public DateTime TimeSent;
         public DateTime TimeRecieved;
-        public bool ResponseRequired;
 
-        public Queue(int id, string url, bool responseRequired)
+        public Queue(int id, string url)
         {
             ID = id;
             URL = url;
-            ResponseRequired = responseRequired;
         }
 
     }

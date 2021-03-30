@@ -10,16 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net;
-using System.IO;    // for StreamReader
 
 namespace Voodoo_Testing
 {
-    public class PicClass
+    /// <summary>
+    /// Interaction logic for Test.xaml
+    /// </summary>
+    public partial class Test : Window
     {
-        public BitmapImage Img { get; set; }
-        public string ImgName { get; set; }
+        public Test()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World");
+        }
     }
 }

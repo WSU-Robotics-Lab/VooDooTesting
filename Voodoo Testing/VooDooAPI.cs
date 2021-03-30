@@ -28,17 +28,9 @@ namespace Voodoo_Testing
             location
         };
 
-        private string baseurl = "https://www.sku-keeper.com/";
+        public string baseurl = "https://www.sku-keeper.com/";
         private string username;
         private string password;
-        private string deviceID;
-        private string line1;
-        private string line2;
-        private operationType op; //= operationType.display;
-        private string tune;
-        private short time = 10;
-        private string color = "";
-        private string txnID = "";
         private bool loggedIn = false;
         CookieContainer cookieContainer;
 
@@ -53,6 +45,7 @@ namespace Voodoo_Testing
             FillColors();
             FillMusic();
             FillIcons();
+            FillMessageType();
             cookieContainer = new CookieContainer();
         }
 
@@ -60,9 +53,13 @@ namespace Voodoo_Testing
         //                                 User & Password
         //*******************************************************************************
 
-        public void setUsernameAndPassword(string u, string p)
+        public void setUsername(string u)
         {
             username = u;
+        }
+
+        public void setPassword(string p)
+        {
             password = p;
         }
 
@@ -75,11 +72,11 @@ namespace Voodoo_Testing
             //make sure there is a username and password set
             if (username == "")
             {
-                throw (new IllegalArgumentException("Username not set"));
+                //throw (new IllegalArgumentException("Username not set"));
             }
             if (password == "")
             {
-                throw (new IllegalArgumentException("Password not set"));
+                //throw (new IllegalArgumentException("Password not set"));
             }
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(baseurl);
@@ -110,68 +107,6 @@ namespace Voodoo_Testing
         //                                 Execute
         //*******************************************************************************
 
-        public string CreateURL()
-        {
-            //make sure a deviceID has been set
-            if (deviceID == "")
-            {
-                throw (new IllegalArgumentException("DeviceID not set"));
-            }
-
-            //set up the operation
-            string opWord;
-            switch (op)
-            {
-                case operationType.display:
-                    opWord = "display";
-                    break;
-                case operationType.flash:
-                    opWord = "flash";
-                    break;
-                case operationType.opStatic:
-                    opWord = "static";
-                    break;
-                case operationType.opStatic2:
-                    opWord = "static2";
-                    break;
-                case operationType.location:
-                    opWord = "location";
-                    break;
-                default: throw (new IllegalArgumentException("Bad operation"));
-            }
-
-            //if there is no tune set, set it to none, which implies silence--not even a beep!
-            if (tune == "")
-            {
-                tune = "none";
-            }
-
-
-
-            //okay, set up the whole url for the get request
-            //see:  https://voodoorobotics.com/constructing-a-url/
-            string url = baseurl + "api/" + deviceID + "/" + opWord + "/" + line1 + "/" + line2;  //+ "" + "~" + "" + "~" + "";
-            switch (op)
-            {
-                case operationType.display:
-                    url += "/" + tune + "/" + time.ToString() + color;
-                    break;
-                case operationType.flash:
-                    url += "/" + tune + "/" + time.ToString() + color;
-                    break;
-                case operationType.opStatic:
-                case operationType.opStatic2:
-                case operationType.location:
-                default:
-                    break;
-                    //do nothing!
-            }
-
-
-
-            return url;
-        }
-
         public void SendInstruction(string url)
         {
             //are we already logged in?  No need to log in twice.
@@ -185,17 +120,10 @@ namespace Voodoo_Testing
             //throw an exception, and the code below will not execute.
             if (!loggedIn)
             {
-                throw (new RuntimeException("Login failed!"));
+                //throw (new RuntimeException("Login failed!"));
             }
 
-            //if there is a transaction ID for the closed loop, then add it here
-            //see: https://voodoorobotics.com/closed-loop-system/
-            if (txnID != "")
-            {
-                url += "/" + txnID;
-            }
-
-            try
+                 try
             {
                 //testurl url = "https://www.sku-keeper.com/api/E40662:26F78E/message/line1~line2/line3~line4~line5/140,f5,2,g5,2a5,2g5,2/20r";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -217,42 +145,6 @@ namespace Voodoo_Testing
         //*******************************************************************************
         //                                  Arguments for URL     
         //*******************************************************************************
-
-        public void setDeviceID(string id)
-        {
-            deviceID = id;
-        }
-
-        public void setOperation(operationType ot)
-        {
-            op = ot;
-        }
-
-        public void setDisplay(string l1, string l2)
-        {
-            line1 = l1;
-            line2 = l2;
-        }
-
-        public void setTune(string t)
-        {
-            tune = t;
-        }
-
-        public void setTime(short t)
-        {
-            time = t;
-        }
-
-        public void setColor(string t)
-        {
-            color = t;
-        }
-
-        public void setTransactionID(string txn)
-        {
-            txnID = txn;
-        }
 
         public void FillIcons()
         {
@@ -355,13 +247,14 @@ namespace Voodoo_Testing
             Colors.Add("Red", "r");
             Colors.Add("Green", "g");
             Colors.Add("Blue", "b");
-            Colors.Add("RedBlue", "rb");
-            Colors.Add("RedGreen", "rg");
-            Colors.Add("GreenBlue", "gb");
+            Colors.Add("Purple", "rb");
+            Colors.Add("Brown", "rg");
+            Colors.Add("Cyan", "gb");
         }
 
         public void FillMusic()
         {
+            Music.Add("None", "None");
             Music.Add("Regular Beep", "15,c5,4");
             Music.Add("Macaroon", "250,c5,1,e5,1,g5,1,c6,1,g5,1,e5,1,c5,1");
             Music.Add("Marshmallow", "200,d5,3,d5,1,f5,2,f5,1,g5,1,f5,2");
@@ -394,10 +287,5 @@ namespace Voodoo_Testing
             MessageType.Add("Location");
         }
 
-        public void FillImages()
-        {
-            Images.Add("Test1", "/Images\test.png");
-            Images.Add("Test2", "/Images\test2.png");
-        }
     }
 }
