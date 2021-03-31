@@ -39,6 +39,8 @@ namespace Voodoo_Testing
 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol;
 
+
+            //VooDoo
             cbm_Line1.SelectedIndex = 0;
             cbm_Line2.SelectedIndex = 0;
             cbm_Line3.SelectedIndex = 0;
@@ -71,8 +73,16 @@ namespace Voodoo_Testing
                 });
             }
 
+            //END OF VOODOO
+
+
+
+
+
+
         }
 
+        #region "VooDoo"
         #region "Methods"
 
         public (string, int) CreateURL()
@@ -745,6 +755,9 @@ namespace Voodoo_Testing
         }
 
         #endregion
+        #endregion
+
+
 
 
     }

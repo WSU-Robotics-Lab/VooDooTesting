@@ -8,426 +8,440 @@
         Title="MainWindow" Height="475.45" Width="808.484">
 
     <Grid Background="WhiteSmoke">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.65*"/>
-            <ColumnDefinition Width="0.35*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="0.15*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.20*"/>
-        </Grid.RowDefinitions>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.0023*"/>
-                <ColumnDefinition Width="0.5*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="0.02*"/>
-                <RowDefinition Height="0.5*"/>
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="gray" Margin="225, 0, 225, 0"/>
-            <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"  Background="gray" Margin="0, 20, 0, 20"/>
-
-            <Viewbox Margin="0, 0, 0, 2" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Label Content="Username:" />
-            </Viewbox>
-
-            <Viewbox Margin="5, 5, 0, 5" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="txt_UserName" Text="ddeegan"  VerticalAlignment="Center" HorizontalAlignment="Center" MaxLength="50" TextChanged="txt_UserName_TextChanged"    />
-            </Viewbox>
-
-            <Viewbox Margin="0, 0, 0, 2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Label Content="Password:"/>
-            </Viewbox>
-
-            <Viewbox Margin="5, 5, 0, 5" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxLength="50" TextChanged="txt_Password_TextChanged"    />
-            </Viewbox>
 
 
-        </Grid>
+        <TabControl Grid.RowSpan="10" Grid.ColumnSpan="10">
+            <TabItem Header="VooDoo" Grid.RowSpan="10" Grid.ColumnSpan="10">
+                <Grid Grid.RowSpan="10" Grid.ColumnSpan="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.65*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.20*"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.0023*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="0.02*"/>
+                            <RowDefinition Height="0.5*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="gray" Margin="225, 0, 225, 0"/>
+                        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"  Background="gray" Margin="0, 20, 0, 20"/>
+
+                        <Viewbox Margin="0, 0, 0, 2" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Label Content="Username:" />
+                        </Viewbox>
+
+                        <Viewbox Margin="5, 5, 0, 5" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBox x:Name="txt_UserName" Text="ddeegan"  VerticalAlignment="Center" HorizontalAlignment="Center" MaxLength="50" TextChanged="txt_UserName_TextChanged"    />
+                        </Viewbox>
+
+                        <Viewbox Margin="0, 0, 0, 2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Label Content="Password:"/>
+                        </Viewbox>
+
+                        <Viewbox Margin="5, 5, 0, 5" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBox x:Name="txt_Password" Text="VooRobNIAR#1" VerticalAlignment="Center" HorizontalAlignment="Center" MaxLength="50" TextChanged="txt_Password_TextChanged"    />
+                        </Viewbox>
 
 
-
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.142*"/>
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-                <ColumnDefinition Width="0.002*"/>
-                <ColumnDefinition Width="0.142*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.4*" />
-                <RowDefinition Height="0.02*" />
-                <RowDefinition Height="0.6*" />
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="3" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="5" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="7" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="9" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="11" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.ColumnSpan="13"  Grid.Row="1" Background="Gray" Margin="20, 0, 20, 0"/>
+                    </Grid>
 
 
 
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="0" Grid.Row="0">
-                <Label Content="Device ID"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="0" Grid.Row="2" >
-                <Border x:Name="brd_cmb_DeviceID" BorderBrush="Transparent" BorderThickness="2">
-                    <ComboBox x:Name="cmb_DeviceID" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                        <ComboBoxItem Content="EC7951:EBC981" />
-                        <ComboBoxItem Content="E40662:26F78E" />
-                    </ComboBox>
-                </Border>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.142*"/>
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                            <ColumnDefinition Width="0.002*"/>
+                            <ColumnDefinition Width="0.142*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.4*" />
+                            <RowDefinition Height="0.02*" />
+                            <RowDefinition Height="0.6*" />
+                        </Grid.RowDefinitions>
 
-            </Viewbox>
-
-
-
-
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="2" Grid.Row="0">
-                <Label Content="Message Type"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="2" Grid.Row="2">
-                <Border x:Name="brd_cmb_MessageType"  BorderBrush="Transparent" BorderThickness="2">
-                    <ComboBox x:Name="cmb_MessageType" Background="DarkGray" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
-                </Border>
-            </Viewbox>
-
-
-
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="4" Grid.Row="0">
-                <Label Content="Music" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="4" Grid.Row="2">
-                <Border x:Name="brd_cmb__Music" BorderBrush="Transparent" BorderThickness="2">
-                    <ComboBox x:Name="cmb__Music" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                </Border>
-            </Viewbox>
+                        <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="3" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="5" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="7" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="9" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="11" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.ColumnSpan="13"  Grid.Row="1" Background="Gray" Margin="20, 0, 20, 0"/>
 
 
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="6" Grid.Row="0">
-                <Label Content="Button Color"   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
 
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="6" Grid.Row="2">
-                <Border x:Name="brd_cmb_ButtonColor" BorderBrush="Transparent" BorderThickness="2">
-                    <ComboBox x:Name="cmb_ButtonColor" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="3.092,-2.995"/>
-                </Border>
-            </Viewbox>
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="0" Grid.Row="0">
+                            <Label Content="Device ID"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="0" Grid.Row="2" >
+                            <Border x:Name="brd_cmb_DeviceID" BorderBrush="Transparent" BorderThickness="2">
+                                <ComboBox x:Name="cmb_DeviceID" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                    <ComboBoxItem Content="EC7951:EBC981" />
+                                    <ComboBoxItem Content="E40662:26F78E" />
+                                </ComboBox>
+                            </Border>
 
-
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="8" Grid.Row="0">
-                <Label Content="Color Duration (Sec)"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Margin="7, 0, 7, 0" Grid.Column="8" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <TextBox x:Name="txt_ButtonColorDuration" FontSize="10" MinWidth="50" Grid.Column="4" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-
-
-            <Viewbox Grid.Column="10" Grid.Row="0" Margin="7, 0, 7, 0">
-                <Label Content="Remain On"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Grid.Column="10" Grid.Row="2" Margin="0, 10, 0, 10">
-                <CheckBox x:Name="Chk_RemainOn" Margin="7, 0, 7, 0"  VerticalAlignment="Center" HorizontalAlignment="Center" Unchecked="Chk_RemainOn_Unchecked" Checked="Chk_RemainOn_Checked"/>
-            </Viewbox>
+                        </Viewbox>
 
 
 
 
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="2" Grid.Row="0">
+                            <Label Content="Message Type"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="2" Grid.Row="2">
+                            <Border x:Name="brd_cmb_MessageType"  BorderBrush="Transparent" BorderThickness="2">
+                                <ComboBox x:Name="cmb_MessageType" Background="DarkGray" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                            </Border>
+                        </Viewbox>
 
-            <Viewbox Grid.Column="12" Grid.Row="0" Margin="7, 0, 7, 0">
-                <Label Content="Response Required"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            </Viewbox>
-            <Viewbox Grid.Column="12" Grid.Row="2" Margin="0, 10, 0, 10">
-                <CheckBox x:Name="Chk_ResponseRequired" Margin="7, 0, 7, 0"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Viewbox>
+
+
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="4" Grid.Row="0">
+                            <Label Content="Music" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="4" Grid.Row="2">
+                            <Border x:Name="brd_cmb__Music" BorderBrush="Transparent" BorderThickness="2">
+                                <ComboBox x:Name="cmb__Music" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            </Border>
+                        </Viewbox>
+
+
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="6" Grid.Row="0">
+                            <Label Content="Button Color"   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="6" Grid.Row="2">
+                            <Border x:Name="brd_cmb_ButtonColor" BorderBrush="Transparent" BorderThickness="2">
+                                <ComboBox x:Name="cmb_ButtonColor" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="3.092,-2.995"/>
+                            </Border>
+                        </Viewbox>
+
+
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="8" Grid.Row="0">
+                            <Label Content="Color Duration (Sec)"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Margin="7, 0, 7, 0" Grid.Column="8" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <TextBox x:Name="txt_ButtonColorDuration" FontSize="10" MinWidth="50" Grid.Column="4" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+
+
+                        <Viewbox Grid.Column="10" Grid.Row="0" Margin="7, 0, 7, 0">
+                            <Label Content="Remain On"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="10" Grid.Row="2" Margin="0, 10, 0, 10">
+                            <CheckBox x:Name="Chk_RemainOn" Margin="7, 0, 7, 0"  VerticalAlignment="Center" HorizontalAlignment="Center" Unchecked="Chk_RemainOn_Unchecked" Checked="Chk_RemainOn_Checked"/>
+                        </Viewbox>
 
 
 
 
 
+                        <Viewbox Grid.Column="12" Grid.Row="0" Margin="7, 0, 7, 0">
+                            <Label Content="Response Required"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="12" Grid.Row="2" Margin="0, 10, 0, 10">
+                            <CheckBox x:Name="Chk_ResponseRequired" Margin="7, 0, 7, 0"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Viewbox>
 
 
 
 
 
-        </Grid>
 
 
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.15*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.15*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.70*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.20*"/>
-                <RowDefinition Height="0.20*"/>
-            </Grid.RowDefinitions>
 
 
-            <Grid Grid.Column="1" Grid.RowSpan="5" Background="Transparent" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="3" Grid.RowSpan="5" Background="Transparent" Margin="0, 20, 0, 20"/>
+                    </Grid>
 
-            <Viewbox>
-                <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_Line1" FontSize="15" Content="Line 1" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Viewbox>
-            <Viewbox Margin="5, 0, 5, 0" Grid.Column="2" >
-                <ComboBox Name="cbm_Line1" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line1_SelectionChanged">
-                    <ComboBoxItem Content="Text"/>
-                    <ComboBoxItem Content="Icon"/>
-                    <ComboBoxItem Content="Barcode"/>
-                    <ComboBoxItem Content="QRCode"/>
-                </ComboBox>
-            </Viewbox>
 
-            <Viewbox x:Name="vbx_Line1Txt" Margin="5, 0, 5, 0"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
-                <TextBox x:Name="txt_Line1" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line1Cbb" Margin="5, 0, 5, 0" Grid.Row="0" Grid.Column="4" Visibility="Collapsed">
-                <ComboBox Name="cbm_Line1Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.15*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.15*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.70*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.20*"/>
+                            <RowDefinition Height="0.20*"/>
+                            <RowDefinition Height="0.20*"/>
+                            <RowDefinition Height="0.20*"/>
+                            <RowDefinition Height="0.20*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <Grid Grid.Column="1" Grid.RowSpan="5" Background="Transparent" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="3" Grid.RowSpan="5" Background="Transparent" Margin="0, 20, 0, 20"/>
+
+                        <Viewbox>
+                            <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_Line1" FontSize="15" Content="Line 1" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Viewbox>
+                        <Viewbox Margin="5, 0, 5, 0" Grid.Column="2" >
+                            <ComboBox Name="cbm_Line1" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line1_SelectionChanged">
+                                <ComboBoxItem Content="Text"/>
+                                <ComboBoxItem Content="Icon"/>
+                                <ComboBoxItem Content="Barcode"/>
+                                <ComboBoxItem Content="QRCode"/>
+                            </ComboBox>
+                        </Viewbox>
+
+                        <Viewbox x:Name="vbx_Line1Txt" Margin="5, 0, 5, 0"  Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
+                            <TextBox x:Name="txt_Line1" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line1Cbb" Margin="5, 0, 5, 0" Grid.Row="0" Grid.Column="4" Visibility="Collapsed">
+                            <ComboBox Name="cbm_Line1Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image x:Name="cbm_Line1Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                            <TextBlock x:Name="cbm_Line1Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </Viewbox>
+
+
+
+
+                        <Viewbox Grid.Row="1" Grid.Column="0">
+                            <Label  x:Name="lbl_Line2" FontSize="15" Content="Line 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Viewbox>
+                        <Viewbox Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="2" >
+                            <ComboBox Name="cbm_Line2" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line2_SelectionChanged">
+                                <ComboBoxItem Content="Text"/>
+                                <ComboBoxItem Content="Icon"/>
+                                <ComboBoxItem Content="Barcode"/>
+                                <ComboBoxItem Content="QRCode"/>
+                            </ComboBox>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line2Txt" Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
+                            <TextBox x:Name="txt_Line2" MinWidth="300" Grid.Row="1" Grid.Column="4" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line2Cbb" Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="4" Visibility="Collapsed">
+                            <ComboBox Name="cbm_Line2Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image x:Name="cbm_Line2Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                            <TextBlock x:Name="cbm_Line2Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </Viewbox>
+
+
+
+
+
+
+
+                        <Viewbox Grid.Row="2" Grid.Column="0">
+                            <Label  x:Name="lbl_Line3" FontSize="15" Content="Line 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Viewbox>
+                        <Viewbox Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="2" >
+                            <ComboBox Name="cbm_Line3" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line3_SelectionChanged">
+                                <ComboBoxItem Content="Text"/>
+                                <ComboBoxItem Content="Icon"/>
+                                <ComboBoxItem Content="Barcode"/>
+                                <ComboBoxItem Content="QRCode"/>
+                            </ComboBox>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line3Txt" Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
+                            <TextBox x:Name="txt_Line3" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line3Cbb" Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="4" Visibility="Collapsed">
+                            <ComboBox Name="cbm_Line3Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image x:Name="cbm_Line3Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                            <TextBlock x:Name="cbm_Line3Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </Viewbox>
+
+
+
+
+
+
+
+
+                        <Viewbox Grid.Row="3" Grid.Column="0">
+                            <Label  x:Name="lbl_Line4" FontSize="15" Content="Line 4" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Viewbox>
+                        <Viewbox Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="2" >
+                            <ComboBox Name="cbm_Line4" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line4_SelectionChanged">
+                                <ComboBoxItem Content="Text"/>
+                                <ComboBoxItem Content="Icon"/>
+                                <ComboBoxItem Content="Barcode"/>
+                                <ComboBoxItem Content="QRCode"/>
+                            </ComboBox>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line4Txt" Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
+                            <TextBox x:Name="txt_Line4" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line4Cbb" Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="4" Visibility="Collapsed">
+                            <ComboBox Name="cbm_Line4Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image x:Name="cbm_Line4Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                            <TextBlock x:Name="cbm_Line4Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </Viewbox>
+
+
+
+
+
+
+                        <Viewbox Grid.Row="4" Grid.Column="0">
+                            <Label  x:Name="lbl_Line5" FontSize="15" Content="Line 5" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Viewbox>
+                        <Viewbox Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="2" >
+                            <ComboBox Name="cbm_Line5" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line5_SelectionChanged">
+                                <ComboBoxItem Content="Text"/>
+                                <ComboBoxItem Content="Icon"/>
+                                <ComboBoxItem Content="Barcode"/>
+                                <ComboBoxItem Content="QRCode"/>
+                            </ComboBox>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line5Txt" Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
+                            <TextBox x:Name="txt_Line5" MinWidth="300" FontSize="10"   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
+                        </Viewbox>
+                        <Viewbox x:Name="vbx_Line5Cbb" Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="4" Visibility="Collapsed">
+                            <ComboBox Name="cbm_Line5Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image x:Name="cbm_Line5Images" Source="{Binding Img}" Width="50" Height="50"/>
+                                            <TextBlock x:Name="cbm_Line5Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </Viewbox>
+
+
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.333*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.333*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.333*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.333*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="3" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+                        <Grid Grid.Column="5" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
+
+                        <Viewbox Grid.Column="0" Margin="20, 10, 20, 10">
+                            <Button x:Name="btn_QueueInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Queue Instruction" Click="btn_QueueInstruction_Click"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="2" Margin="20, 10, 20, 10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
+                                    <Label Content="ID:" FontSize="50"/>
+                                    <TextBox x:Name="txtInsertID" FontSize="50" MinWidth="100" BorderThickness="2"/>
+                                </StackPanel>
+                                <Button x:Name="btn_InsertInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Replace Instruction" Click="btn_InsertInstruction_Click"  />
                             </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Viewbox>
-
-
-
-
-            <Viewbox Grid.Row="1" Grid.Column="0">
-                <Label  x:Name="lbl_Line2" FontSize="15" Content="Line 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Viewbox>
-            <Viewbox Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="2" >
-                <ComboBox Name="cbm_Line2" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line2_SelectionChanged">
-                    <ComboBoxItem Content="Text"/>
-                    <ComboBoxItem Content="Icon"/>
-                    <ComboBoxItem Content="Barcode"/>
-                    <ComboBoxItem Content="QRCode"/>
-                </ComboBox>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line2Txt" Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
-                <TextBox x:Name="txt_Line2" MinWidth="300" Grid.Row="1" Grid.Column="4" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line2Cbb" Margin="5, 0, 5, 0" Grid.Row="1" Grid.Column="4" Visibility="Collapsed">
-                <ComboBox Name="cbm_Line2Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="cbm_Line2Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                <TextBlock x:Name="cbm_Line2Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Viewbox>
+                        <Viewbox Grid.Column="4" Margin="20, 10, 20, 10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
+                                    <Label Content="ID:" FontSize="50"/>
+                                    <TextBox x:Name="txtDeleteID" FontSize="50" MinWidth="100" BorderThickness="2"/>
+                                </StackPanel>
+                                <Button x:Name="btn_RemoveInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Remove Instruction" Click="btn_RemoveInstruction_Click"/>
                             </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Viewbox>
+                        </Viewbox>
+                        <Viewbox Grid.Column="6" Margin="20, 10, 20, 10">
+                            <Button  x:Name="btn_SendInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Send Instruction" Click="btn_SendInstruction_Click" />
+                        </Viewbox>
+
+                    </Grid>
 
 
 
+                    <ScrollViewer Grid.Column="1" Grid.RowSpan="3">
+                        <!--<Viewbox>-->
+                        <TextBox x:Name="txt_Instructions" ScrollViewer.CanContentScroll="True" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" Foreground="Black" FontWeight="bold" MinWidth="200" MinHeight="335" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsEnabled="True"/>
+                        <!--</Viewbox>-->
+                    </ScrollViewer>
+
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.003*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
 
 
+                        <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
 
-            <Viewbox Grid.Row="2" Grid.Column="0">
-                <Label  x:Name="lbl_Line3" FontSize="15" Content="Line 3" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Viewbox>
-            <Viewbox Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="2" >
-                <ComboBox Name="cbm_Line3" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line3_SelectionChanged">
-                    <ComboBoxItem Content="Text"/>
-                    <ComboBoxItem Content="Icon"/>
-                    <ComboBoxItem Content="Barcode"/>
-                    <ComboBoxItem Content="QRCode"/>
-                </ComboBox>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line3Txt" Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
-                <TextBox x:Name="txt_Line3" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line3Cbb" Margin="5, 0, 5, 0" Grid.Row="2" Grid.Column="4" Visibility="Collapsed">
-                <ComboBox Name="cbm_Line3Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="cbm_Line3Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                <TextBlock x:Name="cbm_Line3Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Viewbox>
+                        <Viewbox Grid.Column="0" Margin="20, 10, 20, 10">
+                            <Button  x:Name="btn_Import" MinWidth="100" FontSize="25" Background="DarkGray" Content="Import" Click="btn_Import_Click" />
+                        </Viewbox>
+
+                        <Viewbox Grid.Column="2" Margin="20, 10, 20, 10">
+                            <Button  x:Name="btn_Export" MinWidth="100" FontSize="25" Background="DarkGray" Content="Export" Click="Btn_Export_Click"  />
+                        </Viewbox>
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="Lighting Pick">
+                
+            </TabItem>
+            
+        </TabControl>
 
 
-
-
-
-
-
-
-            <Viewbox Grid.Row="3" Grid.Column="0">
-                <Label  x:Name="lbl_Line4" FontSize="15" Content="Line 4" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Viewbox>
-            <Viewbox Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="2" >
-                <ComboBox Name="cbm_Line4" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line4_SelectionChanged">
-                    <ComboBoxItem Content="Text"/>
-                    <ComboBoxItem Content="Icon"/>
-                    <ComboBoxItem Content="Barcode"/>
-                    <ComboBoxItem Content="QRCode"/>
-                </ComboBox>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line4Txt" Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
-                <TextBox x:Name="txt_Line4" MinWidth="300" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line4Cbb" Margin="5, 0, 5, 0" Grid.Row="3" Grid.Column="4" Visibility="Collapsed">
-                <ComboBox Name="cbm_Line4Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="cbm_Line4Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                <TextBlock x:Name="cbm_Line4Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Viewbox>
-
-
-
-
-
-
-            <Viewbox Grid.Row="4" Grid.Column="0">
-                <Label  x:Name="lbl_Line5" FontSize="15" Content="Line 5" VerticalAlignment="Center" HorizontalAlignment="Center" />
-            </Viewbox>
-            <Viewbox Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="2" >
-                <ComboBox Name="cbm_Line5" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line5_SelectionChanged">
-                    <ComboBoxItem Content="Text"/>
-                    <ComboBoxItem Content="Icon"/>
-                    <ComboBoxItem Content="Barcode"/>
-                    <ComboBoxItem Content="QRCode"/>
-                </ComboBox>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line5Txt" Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible">
-                <TextBox x:Name="txt_Line5" MinWidth="300" FontSize="10"   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" MaxLength="24"/>
-            </Viewbox>
-            <Viewbox x:Name="vbx_Line5Cbb" Margin="5, 0, 5, 0" Grid.Row="4" Grid.Column="4" Visibility="Collapsed">
-                <ComboBox Name="cbm_Line5Icons" MinWidth="300" FontSize="10" ItemsSource="{Binding Images}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image x:Name="cbm_Line5Images" Source="{Binding Img}" Width="50" Height="50"/>
-                                <TextBlock x:Name="cbm_Line5Text" Text="{Binding ImgName}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </Viewbox>
-
-
-        </Grid>
-
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.333*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.333*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.333*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.333*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="3" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-            <Grid Grid.Column="5" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-
-            <Viewbox Grid.Column="0" Margin="20, 10, 20, 10">
-                <Button x:Name="btn_QueueInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Queue Instruction" Click="btn_QueueInstruction_Click"/>
-            </Viewbox>
-            <Viewbox Grid.Column="2" Margin="20, 10, 20, 10">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
-                        <Label Content="ID:" FontSize="50"/>
-                        <TextBox x:Name="txtInsertID" FontSize="50" MinWidth="100" BorderThickness="2"/>
-                    </StackPanel>
-                    <Button x:Name="btn_InsertInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Replace Instruction" Click="btn_InsertInstruction_Click"  />
-                </StackPanel>
-            </Viewbox>
-            <Viewbox Grid.Column="4" Margin="20, 10, 20, 10">
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
-                        <Label Content="ID:" FontSize="50"/>
-                        <TextBox x:Name="txtDeleteID" FontSize="50" MinWidth="100" BorderThickness="2"/>
-                    </StackPanel>
-                    <Button x:Name="btn_RemoveInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Remove Instruction" Click="btn_RemoveInstruction_Click"/>
-                </StackPanel>
-            </Viewbox>
-            <Viewbox Grid.Column="6" Margin="20, 10, 20, 10">
-                <Button  x:Name="btn_SendInstruction" MinHeight="100" FontSize="25" Background="DarkGray" Content="Send Instruction" Click="btn_SendInstruction_Click" />
-            </Viewbox>
-
-        </Grid>
-
-
-
-        <ScrollViewer Grid.Column="1" Grid.RowSpan="3">
-            <!--<Viewbox>-->
-            <TextBox x:Name="txt_Instructions" ScrollViewer.CanContentScroll="True" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" Foreground="Black" FontWeight="bold" MinWidth="200" MinHeight="335" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsEnabled="True"/>
-            <!--</Viewbox>-->
-        </ScrollViewer>
-
-        <Grid Grid.Column="1" Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="0.003*"/>
-                <ColumnDefinition Width="0.5*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-
-
-            <Grid Grid.Column="1" Grid.RowSpan="5" Background="Gray" Margin="0, 20, 0, 20"/>
-
-            <Viewbox Grid.Column="0" Margin="20, 10, 20, 10">
-                <Button  x:Name="btn_Import" MinWidth="100" FontSize="25" Background="DarkGray" Content="Import" Click="btn_Import_Click" />
-            </Viewbox>
-
-            <Viewbox Grid.Column="2" Margin="20, 10, 20, 10">
-                <Button  x:Name="btn_Export" MinWidth="100" FontSize="25" Background="DarkGray" Content="Export" Click="Btn_Export_Click"  />
-            </Viewbox>
-
-        </Grid>
 
 
     </Grid>

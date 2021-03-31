@@ -43,5 +43,3 @@ C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Voodoo T
 C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Voodoo Testing.csproj.CoreCompileInputs.cache
 C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Voodoo Testing.exe
 C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Voodoo Testing.pdb
-C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Test.g.cs
-C:\Users\Jallen\Source\Repos\VooDooTestingNIAR\Voodoo Testing\obj\Debug\Test.baml
