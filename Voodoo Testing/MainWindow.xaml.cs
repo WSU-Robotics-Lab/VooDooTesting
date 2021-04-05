@@ -451,7 +451,6 @@ namespace Voodoo_Testing
                 MessageBox.Show("Queue messages before sending");
                 return;
             }
-
         }
 
         private void cbm_Line1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -716,6 +715,11 @@ namespace Voodoo_Testing
             choofdlog.ShowDialog();
             string line;
 
+            if (choofdlog.FileName == "")
+            {
+                return;
+            }
+
             // Read the file and display it line by line.  
             System.IO.StreamReader file =
                 new System.IO.StreamReader(choofdlog.FileName);
@@ -723,7 +727,7 @@ namespace Voodoo_Testing
             {
                 if (line != "")
                 {
-                    Queue q = new Queue(int.Parse(line.Split(':').First()), line.Split(':')[1] + line.Split(':')[2] + line.Split(':')[3]);
+                    Queue q = new Queue(int.Parse(line.Split(':').First()), line.Split(':')[1] + ":" + line.Split(':')[2] + ":" + line.Split(':')[3]);
                     Queued.Add(q);
                 }
             }

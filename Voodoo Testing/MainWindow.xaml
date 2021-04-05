@@ -97,8 +97,11 @@
                         <Viewbox Margin="7, 0, 7, 0" Grid.Column="0" Grid.Row="2" >
                             <Border x:Name="brd_cmb_DeviceID" BorderBrush="Transparent" BorderThickness="2">
                                 <ComboBox x:Name="cmb_DeviceID" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                                    <ComboBoxItem Content="EC7951:EBC981" />
                                     <ComboBoxItem Content="E40662:26F78E" />
+                                    <ComboBoxItem Content="D4f80C:9B02B8" />
+                                    <ComboBoxItem Content="D2EFE2:5CDF85" />
+                                    <ComboBoxItem Content="FD4C88:FB7581" />
+                                    <ComboBoxItem Content="EC7951:EBC981" />
                                 </ComboBox>
                             </Border>
 

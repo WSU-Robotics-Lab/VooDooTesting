@@ -125,7 +125,8 @@ namespace Voodoo_Testing
 
                  try
             {
-                //testurl url = "https://www.sku-keeper.com/api/E40662:26F78E/message/line1~line2/line3~line4~line5/140,f5,2,g5,2a5,2g5,2/20r";
+                //TEST URL
+                //url = "https://www.sku-keeper.com/api/EC7951:EBC981/message/line1~line2/line3~line4~line5/140,f5,2,g5,2a5,2g5,2/20r";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.CookieContainer = cookieContainer;
 
@@ -133,6 +134,7 @@ namespace Voodoo_Testing
 
                 var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 //response discarded in this demo!
+                MessageBox.Show(responseString);
                 response.Close();
             }
             catch (Exception e)
@@ -280,11 +282,11 @@ namespace Voodoo_Testing
 
         public void FillMessageType()
         {
-            MessageType.Add("Display");
-            MessageType.Add("Flash");
-            MessageType.Add("OpStatic");
-            MessageType.Add("OpStatic2");
-            MessageType.Add("Location");
+            MessageType.Add("message");
+            MessageType.Add("display");
+            MessageType.Add("static");
+            //MessageType.Add("OpStatic2");
+            MessageType.Add("location");
         }
 
     }
