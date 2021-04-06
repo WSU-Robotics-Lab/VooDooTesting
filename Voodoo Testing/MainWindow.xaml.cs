@@ -101,7 +101,7 @@ namespace Voodoo_Testing
             bool abort = false;
             bool response = false;
             string opWord = "";
-            VooDooAPI.operationType OpType = VooDooAPI.operationType.display;
+            VooDooAPI.operationType OpType = VooDooAPI.operationType.flash;
 
             //Checking Device ID is selected
             if (cmb_DeviceID.SelectedItem != null)
@@ -136,17 +136,14 @@ namespace Voodoo_Testing
                     opWord = cmb_MessageType.Text;
                     switch (opWord)
                     {
-                        case "display":
-                            OpType = VooDooAPI.operationType.display;
-                            break;
                         case "flash":
                             OpType = VooDooAPI.operationType.flash;
                             break;
-                        case "static":
-                            OpType = VooDooAPI.operationType.opStatic;
+                        case "pick":
+                            OpType = VooDooAPI.operationType.pick;
                             break;
-                        case "static2":
-                            OpType = VooDooAPI.operationType.opStatic2;
+                        case "static":
+                            OpType = VooDooAPI.operationType.background;
                             break;
                         case "location":
                             OpType = VooDooAPI.operationType.location;
@@ -163,66 +160,79 @@ namespace Voodoo_Testing
                 abort = true;
             }
 
-            //Checking Music is Selected
-            if (cmb__Music.SelectedItem != null)
+            //Abort if any data was missing
+            if (abort == true)
             {
-                if (cmb__Music.SelectedItem.ToString() != "")
+                return ("", 0);
+            }
+
+            //Checking Music is Selected
+            if (cmb_MessageType.Text == "pick" || cmb_MessageType.Text == "flash")
+            {
+                if (cmb__Music.SelectedItem != null)
                 {
-                    music = v.Music[cmb__Music.Text];
-                    brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    if (cmb__Music.SelectedItem.ToString() != "")
+                    {
+                        music = v.Music[cmb__Music.Text];
+                        brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    }
+                    else
+                    {
+                        brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Red);
+                        abort = true;
+                    }
                 }
                 else
                 {
                     brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Red);
                     abort = true;
                 }
-            }
-            else
-            {
-                brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Red);
-                abort = true;
-            }
-
-            //Checking Button Colors is Selected
-            if (cmb_ButtonColor.SelectedItem != null)
-            {
-                if (cmb_ButtonColor.SelectedItem.ToString() != "")
+                //Checking Button Colors is Selected
+                if (cmb_ButtonColor.SelectedItem != null)
                 {
-                    color = v.Colors[cmb_ButtonColor.Text];
-                    brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    if (cmb_ButtonColor.SelectedItem.ToString() != "")
+                    {
+                        color = v.Colors[cmb_ButtonColor.Text];
+                        brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    }
+                    else
+                    {
+                        brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Red);
+                        abort = true;
+                    }
                 }
                 else
                 {
                     brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Red);
                     abort = true;
                 }
-            }
-            else
-            {
-                brd_cmb_ButtonColor.BorderBrush = new SolidColorBrush(Colors.Red);
-                abort = true;
-            }
-
-            //If remain on is checked set color duration to 0
-            if (Chk_RemainOn.IsChecked == false)
-            {
-                if (txt_ButtonColorDuration.Text != "")
+                //If remain on is checked set color duration to 0
+                if (Chk_RemainOn.IsChecked == false)
                 {
-                    time = short.Parse(txt_ButtonColorDuration.Text);
-                    txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    if (txt_ButtonColorDuration.Text != "")
+                    {
+                        time = short.Parse(txt_ButtonColorDuration.Text);
+                        txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
+                    }
+                    else
+                    {
+                        txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Red);
+                        abort = true;
+                    }
                 }
                 else
                 {
-                    txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Red);
-                    abort = true;
+                    txt_ButtonColorDuration.Text = "0";
+                    txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
                 }
             }
             else
             {
-                txt_ButtonColorDuration.Text = "0";
+                brd_cmb__Music.BorderBrush = new SolidColorBrush(Colors.Transparent);
                 txt_ButtonColorDuration.BorderBrush = new SolidColorBrush(Colors.Transparent);
             }
 
+           
             //Checking Response Required is Checked
             if (Chk_ResponseRequired.IsChecked == true)
             {
@@ -274,7 +284,7 @@ namespace Voodoo_Testing
                     break;
 
                 case "Icon":
-                    Line2 = "%5c" + v.Icons[cbm_Line2Icons.SelectedItem.ToString()];
+                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line2Icons.SelectedValue).ImgName];
                     break;
 
                 default:
@@ -296,7 +306,7 @@ namespace Voodoo_Testing
                     break;
 
                 case "Icon":
-                    Line3 = "%5c" + v.Icons[cbm_Line3Icons.SelectedItem.ToString()];
+                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line3Icons.SelectedValue).ImgName];
                     break;
 
                 default:
@@ -318,7 +328,7 @@ namespace Voodoo_Testing
                     break;
 
                 case "Icon":
-                    Line4 = "%5c" + v.Icons[cbm_Line4Icons.SelectedItem.ToString()];
+                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line4Icons.SelectedValue).ImgName];
                     break;
 
                 default:
@@ -340,7 +350,7 @@ namespace Voodoo_Testing
                     break;
 
                 case "Icon":
-                    Line5 = "%5c" + v.Icons[cbm_Line5Icons.SelectedItem.ToString()];
+                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line5Icons.SelectedValue).ImgName];
                     break;
 
                 default:
@@ -366,18 +376,23 @@ namespace Voodoo_Testing
 
             //okay, set up the whole url for the get request
             //see:  https://voodoorobotics.com/constructing-a-url/
-            url = v.baseurl + "api/" + DeviceID + "/" + opWord + "/" + Line1 + "~" + Line2 + "/" + Line3 + "~" + Line4 + "~" + Line5;
+            url = v.baseurl + "api/" + DeviceID + "/" + opWord + "/";
             switch (OpType)
             {
-                case VooDooAPI.operationType.display:
-                    url += "/" + music + "/" + time.ToString() + color;
-                    break;
                 case VooDooAPI.operationType.flash:
+                    url += Line1 + "~" + Line2 + "/" + Line3 + "~" + Line4 + "~" + Line5;
                     url += "/" + music + "/" + time.ToString() + color;
                     break;
-                case VooDooAPI.operationType.opStatic:
-                case VooDooAPI.operationType.opStatic2:
+                case VooDooAPI.operationType.pick:
+                    url += Line1 + "~" + Line2 + "/" + Line3 + "~" + Line4 + "~" + Line5;
+                    url += "/" + music + "/" + time.ToString() + color;
+                    break;
+                case VooDooAPI.operationType.background:
+                    url += Line1 + "~" + Line2 + "/" + Line3 + "~" + Line4 + "~" + Line5;
+                    break;
                 case VooDooAPI.operationType.location:
+                    url += Line1;
+                    break;
                 default:
                     break;
                     //do nothing!
@@ -440,7 +455,13 @@ namespace Voodoo_Testing
                     new Thread(() =>
                     {
                         Q.TimeSent = DateTime.Now;
-                        v.SendInstruction(Q.URL);
+                        //v.SendInstruction(Q.URL);
+                        string url = "";
+                        Dispatcher.Invoke(() =>
+                        {
+                            url = txt_Instructions.Text.Split(':')[1] + ":" + txt_Instructions.Text.Split(':')[2] + ":" + txt_Instructions.Text.Split(':')[3];
+                        });
+                        v.SendInstruction(url);
                         RemoveLine();
                         Thread.Sleep(100);
                     }).Start();
@@ -477,10 +498,7 @@ namespace Voodoo_Testing
                 case "Icon":
                     vbx_Line1Txt.Visibility = Visibility.Collapsed;
                     vbx_Line1Cbb.Visibility = Visibility.Visible;
-                    //foreach (string Icon in v.Icons.Keys)
-                    //{
-                    //    cbm_Line1Icons.Items.Add(Icon);
-                    //}
+                    cbm_Line1Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -514,6 +532,7 @@ namespace Voodoo_Testing
                 case "Icon":
                     vbx_Line2Txt.Visibility = Visibility.Collapsed;
                     vbx_Line2Cbb.Visibility = Visibility.Visible;
+                    cbm_Line2Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -547,6 +566,7 @@ namespace Voodoo_Testing
                 case "Icon":
                     vbx_Line3Txt.Visibility = Visibility.Collapsed;
                     vbx_Line3Cbb.Visibility = Visibility.Visible;
+                    cbm_Line3Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -580,6 +600,7 @@ namespace Voodoo_Testing
                 case "Icon":
                     vbx_Line4Txt.Visibility = Visibility.Collapsed;
                     vbx_Line4Cbb.Visibility = Visibility.Visible;
+                    cbm_Line4Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -613,6 +634,7 @@ namespace Voodoo_Testing
                 case "Icon":
                     vbx_Line5Txt.Visibility = Visibility.Collapsed;
                     vbx_Line5Cbb.Visibility = Visibility.Visible;
+                    cbm_Line5Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -758,11 +780,76 @@ namespace Voodoo_Testing
             v.setPassword(txt_Password.Text);
         }
 
-        #endregion
+        private void cmb_MessageType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last() == "location")
+            {
+                txt_Line1.Visibility = Visibility.Visible;
+                Grid.SetColumn(vbx_Line1Txt, 2);
+                Grid.SetColumnSpan(vbx_Line1Txt, 3);
+                cbm_Line1.Visibility = Visibility.Visible;
+                cbm_Line1.Visibility = Visibility.Collapsed;
+                cbm_Line1Icons.Visibility = Visibility.Collapsed;
+                txt_Line2.Visibility = Visibility.Collapsed;
+                cbm_Line2.Visibility = Visibility.Collapsed;
+                lbl_Line2.Visibility = Visibility.Collapsed;
+                cbm_Line2Icons.Visibility = Visibility.Collapsed;
+                txt_Line3.Visibility = Visibility.Collapsed;
+                cbm_Line3.Visibility = Visibility.Collapsed;
+                cbm_Line3Icons.Visibility = Visibility.Collapsed;
+                lbl_Line3.Visibility = Visibility.Collapsed;
+                txt_Line4.Visibility = Visibility.Collapsed;
+                cbm_Line4.Visibility = Visibility.Collapsed;
+                cbm_Line4Icons.Visibility = Visibility.Collapsed;
+                lbl_Line4.Visibility = Visibility.Collapsed;
+                txt_Line5.Visibility = Visibility.Collapsed;
+                cbm_Line5.Visibility = Visibility.Collapsed;
+                cbm_Line5Icons.Visibility = Visibility.Collapsed;
+                lbl_Line5.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txt_Line1.Visibility = Visibility.Visible;
+                Grid.SetColumn(vbx_Line1Txt, 4);
+                Grid.SetColumnSpan(vbx_Line1Txt, 1);
+                cbm_Line1.Visibility = Visibility.Visible;
+                txt_Line2.Visibility = Visibility.Visible;
+                cbm_Line2.Visibility = Visibility.Visible;
+                lbl_Line2.Visibility = Visibility.Visible;
+                txt_Line3.Visibility = Visibility.Visible;
+                cbm_Line3.Visibility = Visibility.Visible;
+                lbl_Line3.Visibility = Visibility.Visible;
+                txt_Line4.Visibility = Visibility.Visible;
+                cbm_Line4.Visibility = Visibility.Visible;
+                lbl_Line4.Visibility = Visibility.Visible;
+                txt_Line5.Visibility = Visibility.Visible;
+                cbm_Line5.Visibility = Visibility.Visible;
+                lbl_Line5.Visibility = Visibility.Visible;
+            }
+
+            if ((sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last() == "static" || (sender as System.Windows.Controls.ComboBox).SelectedItem.ToString().Split(' ').Last() == "location")
+            {
+                cmb__Music.SelectedIndex = -1;
+                cmb_ButtonColor.SelectedIndex = -1;
+                txt_ButtonColorDuration.Text = "";
+                Chk_RemainOn.IsChecked = false;
+            }
+        }
+
         #endregion
 
-
+        #endregion
 
 
     }
 }
+
+
+
+//NOTES
+//If you leave off music then it just stays silent
+//If you leave off a color and a duration it defaults to the last one used
+//Message type is required
+//if no duration then remains on
+//if no color defaults to last used
+//message = display = flash

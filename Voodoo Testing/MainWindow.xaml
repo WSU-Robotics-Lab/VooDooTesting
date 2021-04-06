@@ -115,7 +115,7 @@
                         </Viewbox>
                         <Viewbox Margin="7, 0, 7, 0" Grid.Column="2" Grid.Row="2">
                             <Border x:Name="brd_cmb_MessageType"  BorderBrush="Transparent" BorderThickness="2">
-                                <ComboBox x:Name="cmb_MessageType" Background="DarkGray" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                                <ComboBox x:Name="cmb_MessageType" Background="DarkGray" MinWidth="50" FontSize="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cmb_MessageType_SelectionChanged"/>
                             </Border>
                         </Viewbox>
 
@@ -206,7 +206,7 @@
                             <Label Grid.Row="0" Grid.Column="0" x:Name="lbl_Line1" FontSize="15" Content="Line 1" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         </Viewbox>
                         <Viewbox Margin="5, 0, 5, 0" Grid.Column="2" >
-                            <ComboBox Name="cbm_Line1" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line1_SelectionChanged">
+                            <ComboBox Visibility="Visible" Name="cbm_Line1" FontSize="10" MinWidth="50"  SelectedItem="Text" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="cbm_Line1_SelectionChanged">
                                 <ComboBoxItem Content="Text"/>
                                 <ComboBoxItem Content="Icon"/>
                                 <ComboBoxItem Content="Barcode"/>
@@ -408,7 +408,7 @@
 
                     <ScrollViewer Grid.Column="1" Grid.RowSpan="3">
                         <!--<Viewbox>-->
-                        <TextBox x:Name="txt_Instructions" ScrollViewer.CanContentScroll="True" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" Foreground="Black" FontWeight="bold" MinWidth="200" MinHeight="335" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsEnabled="True"/>
+                        <TextBox x:Name="txt_Instructions" ScrollViewer.CanContentScroll="True" IsReadOnly="False" HorizontalScrollBarVisibility="Visible" Foreground="Black" FontWeight="bold" MinWidth="200" MinHeight="335" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsEnabled="True"/>
                         <!--</Viewbox>-->
                     </ScrollViewer>
 
