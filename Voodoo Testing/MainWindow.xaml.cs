@@ -754,11 +754,102 @@ namespace Voodoo_Testing
             v.setPassword(txt_Password.Text);
         }
 
+
+
         #endregion
+
         #endregion
 
+        Lightning_Pick PTL = new Lightning_Pick();
+        Boolean Status;
+
+        
+        private void ColorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void boxID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LTP_CONNECT_Click(object sender, RoutedEventArgs e)
+        {
+            Status = PTL.Connect();
+            if (Status == true)
+            {
+                listStatus.Items.Add("Connection Succesful");
+            }
+            else
+            {
+                listStatus.Items.Add("Connection Failed");
+            }
+        }
+
+        private void btnSEND_Click(object sender, RoutedEventArgs e)
+        {
+            String[] ModuleArray = { boxID.Text };
+            String[] MessageArray = { txtMes.Text };
+            String ButtonColor = boxColor.Text;
+            String[] ButtonBehavior = { "", "" };
+            String DisplayBehavior;
+
+            //sets Button Behavior
+            if (chkEnableBut.IsChecked == true)
+            {
+                ButtonBehavior[0] = "Enabled";
+            }
+            else
+            {
+                ButtonBehavior[0] = "Disabled";
+            }
+            if (btnOnBut.IsChecked == true)
+            {
+                ButtonBehavior[1] = "On";
+            }
+            else if (btnOffBut.IsChecked == true)
+            {
+                ButtonBehavior[1] = "Off";
+            } 
+            else
+            {
+                ButtonBehavior[1] = "Flash";
+            }
 
 
+            //sets Display Behavior
+            if (btnOnDis.IsChecked == true)
+            {
+                DisplayBehavior = "On";
+            }
+            else if (btnOffDis.IsChecked == true)
+            {
+                DisplayBehavior = "Off";
+            }
+            else
+            {
+                DisplayBehavior = "Flash";
+            }
 
+
+            Status = PTL.ActivateModule(ModuleArray, MessageArray, ButtonColor, ButtonBehavior, DisplayBehavior);
+
+            
+            if (Status == true)
+            {
+                listStatus.Items.Add("Command Succesfully Sent");
+            }
+            else
+            {
+                listStatus.Items.Add("Command Failed");
+            }
+
+        }
+
+        private void btnMaint_Click(object sender, RoutedEventArgs e)
+        {
+            PTL.MaintanenanceModules();
+        }
     }
 }
