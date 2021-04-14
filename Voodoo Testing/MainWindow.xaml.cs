@@ -16,6 +16,8 @@ using System.IO;    // for StreamReader
 using System.Threading;
 using System.Threading.Tasks;
 
+//our domain is NIAR.Voodoo.Robotics.com
+
 namespace Voodoo_Testing
 {
     /// <summary>
@@ -283,10 +285,6 @@ namespace Voodoo_Testing
                     Line2 = "%5cqr" + txt_Line2.Text;
                     break;
 
-                case "Icon":
-                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line2Icons.SelectedValue).ImgName];
-                    break;
-
                 default:
                     Line2 = "";
                     break;
@@ -305,9 +303,6 @@ namespace Voodoo_Testing
                     Line3 = "%5cqr" + txt_Line3.Text;
                     break;
 
-                case "Icon":
-                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line3Icons.SelectedValue).ImgName];
-                    break;
 
                 default:
                     Line3 = "";
@@ -327,9 +322,6 @@ namespace Voodoo_Testing
                     Line4 = "%5cqr" + txt_Line4.Text;
                     break;
 
-                case "Icon":
-                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line4Icons.SelectedValue).ImgName];
-                    break;
 
                 default:
                     Line4 = "";
@@ -349,9 +341,6 @@ namespace Voodoo_Testing
                     Line5 = "%5cqr" + txt_Line5.Text;
                     break;
 
-                case "Icon":
-                    Line1 = "%5c" + v.Icons[((PicClass)cbm_Line5Icons.SelectedValue).ImgName];
-                    break;
 
                 default:
                     Line5 = "";
@@ -514,30 +503,24 @@ namespace Voodoo_Testing
             {
                 case "Text":
                     vbx_Line2Txt.Visibility = Visibility.Visible;
-                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 24;
                     break;
                 case "Barcode":
                     vbx_Line2Txt.Visibility = Visibility.Visible;
-                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 15;
                     break;
 
                 case "QRCode":
                     vbx_Line2Txt.Visibility = Visibility.Visible;
-                    vbx_Line2Cbb.Visibility = Visibility.Collapsed;
                     txt_Line2.MaxLength = 23;
                     break;
 
                 case "Icon":
                     vbx_Line2Txt.Visibility = Visibility.Collapsed;
-                    vbx_Line2Cbb.Visibility = Visibility.Visible;
-                    cbm_Line2Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
                     txt_Line2.Visibility = Visibility.Visible;
-                    cbm_Line2Icons.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -548,30 +531,24 @@ namespace Voodoo_Testing
             {
                 case "Text":
                     vbx_Line3Txt.Visibility = Visibility.Visible;
-                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 24;
                     break;
                 case "Barcode":
                     vbx_Line3Txt.Visibility = Visibility.Visible;
-                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 15;
                     break;
 
                 case "QRCode":
                     vbx_Line3Txt.Visibility = Visibility.Visible;
-                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     txt_Line3.MaxLength = 23;
                     break;
 
                 case "Icon":
                     vbx_Line3Txt.Visibility = Visibility.Collapsed;
-                    vbx_Line3Cbb.Visibility = Visibility.Visible;
-                    cbm_Line3Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
                     txt_Line3.Visibility = Visibility.Visible;
-                    vbx_Line3Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -582,30 +559,24 @@ namespace Voodoo_Testing
             {
                 case "Text":
                     vbx_Line4Txt.Visibility = Visibility.Visible;
-                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 24;
                     break;
                 case "Barcode":
                     vbx_Line4Txt.Visibility = Visibility.Visible;
-                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 15;
                     break;
 
                 case "QRCode":
                     vbx_Line4Txt.Visibility = Visibility.Visible;
-                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     txt_Line4.MaxLength = 23;
                     break;
 
                 case "Icon":
                     vbx_Line4Txt.Visibility = Visibility.Collapsed;
-                    vbx_Line4Cbb.Visibility = Visibility.Visible;
-                    cbm_Line4Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
                     vbx_Line4Txt.Visibility = Visibility.Visible;
-                    vbx_Line4Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -616,30 +587,24 @@ namespace Voodoo_Testing
             {
                 case "Text":
                     vbx_Line5Txt.Visibility = Visibility.Visible;
-                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 24;
                     break;
                 case "Barcode":
                     vbx_Line5Txt.Visibility = Visibility.Visible;
-                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 15;
                     break;
 
                 case "QRCode":
                     vbx_Line5Txt.Visibility = Visibility.Visible;
-                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     txt_Line5.MaxLength = 23;
                     break;
 
                 case "Icon":
                     vbx_Line5Txt.Visibility = Visibility.Collapsed;
-                    vbx_Line5Cbb.Visibility = Visibility.Visible;
-                    cbm_Line5Icons.Visibility = Visibility.Visible;
                     break;
 
                 default:
                     vbx_Line5Txt.Visibility = Visibility.Visible;
-                    vbx_Line5Cbb.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -793,18 +758,14 @@ namespace Voodoo_Testing
                 txt_Line2.Visibility = Visibility.Collapsed;
                 cbm_Line2.Visibility = Visibility.Collapsed;
                 lbl_Line2.Visibility = Visibility.Collapsed;
-                cbm_Line2Icons.Visibility = Visibility.Collapsed;
                 txt_Line3.Visibility = Visibility.Collapsed;
                 cbm_Line3.Visibility = Visibility.Collapsed;
-                cbm_Line3Icons.Visibility = Visibility.Collapsed;
                 lbl_Line3.Visibility = Visibility.Collapsed;
                 txt_Line4.Visibility = Visibility.Collapsed;
                 cbm_Line4.Visibility = Visibility.Collapsed;
-                cbm_Line4Icons.Visibility = Visibility.Collapsed;
                 lbl_Line4.Visibility = Visibility.Collapsed;
                 txt_Line5.Visibility = Visibility.Collapsed;
                 cbm_Line5.Visibility = Visibility.Collapsed;
-                cbm_Line5Icons.Visibility = Visibility.Collapsed;
                 lbl_Line5.Visibility = Visibility.Collapsed;
             }
             else
@@ -833,6 +794,13 @@ namespace Voodoo_Testing
                 cmb_ButtonColor.SelectedIndex = -1;
                 txt_ButtonColorDuration.Text = "";
                 Chk_RemainOn.IsChecked = false;
+                vbx_ResponseText.Visibility = Visibility.Collapsed;
+                Chk_ResponseRequired.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                vbx_ResponseText.Visibility = Visibility.Visible;
+                Chk_ResponseRequired.Visibility = Visibility.Visible;
             }
         }
 

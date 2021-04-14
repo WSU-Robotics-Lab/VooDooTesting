@@ -283,6 +283,9 @@ namespace Voodoo_Testing
             Music.Add("Imperial March Long", "140,g3,4,g3,4,g3,4,e3f,3,b3f,1,g3,4,e3f,3,b3f,1,g3,8,d4,4,d4,4,d4,4,e4f,3,b3f,1,g3f,4,e3f,3,b3f,1,g3,8");
             Music.Add("Pokemon Encounter Fire Red", "75,g5,1,f5s,1,f5,1,g9,1,g5,1,f5s,1,f5,1,g9,1,g5,1,f5s,1,f5,1,g9,1,g5,1,f5s,1,f5,1,g9,1");
             Music.Add("Pokemon Encounter Emerald", "50,c5,1,b5,1,b5f,1,a5,1,b5f,1,a5,1,a5f,1,g5,1,a5,1,g5,1,g5f,1,f5,1,g5,1,f5,1,e5,1,e5f,1,e5,1,e5f,1,d5,1,d5f,1,d5,1,d5f,1,c5,1,b4,1,c5,1,b4,1,b4f,1,c4,1,b4,1,c4,1,c4f,1,d4,1");
+            Music.Add("I'm Lovin It, Don't Sue Me", "100,c5,1,d5,2,e5,2,a5,2,g5,8");
+            Music.Add("Rick Astley", "75,f4,6,g4,8,c4,4,g4,6,a4,5,c5,1,b4f,1,a4,1,f4,7,g4,10,c4,10,p,2,c4,1,c4,1,d4,1,e4,2,f4,1,f4,6,g4,10,c4,4,g4,6,a4,5,c5,1,b4f,1,a4,1,f4,7,g4,10,c4,4,e4,2,f4,2,f4,4,p,4,f4,2,f4,3,f4,2");
+            Music.Add("What's New Scooby Doo", "70,a4,2,b4,2,a4,2,b4,2,g4,4,p,4,a4,2,b4,2,a4,2,g4,2,f4s,4,p,4,g4,2,a4,4,b4,6,b4,4,a4,2,g4,4,g4,2,e4,6");
         }
 
         public void FillMessageType()
